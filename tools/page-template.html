@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="ClientUp AI Pitch A call script — internal sales reference.">
+<title>ClientUp Pitch A Script</title>
+<style>
+  :root{
+    --ink:#101114;           /* say-this text + headings */
+    --ctx:#2E7CC4;           /* backing context — light blue, held legible on white */
+    --ctx-bg:#F2F7FC;
+    --rule:#E3E6EB;
+    --muted:#6B7280;
+    --ground:#FFFFFF;
+    --measure:68ch;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  /* Deliberate single-theme page: this is read aloud on live calls and must look
+     identical everywhere, so the dark-mode toggle is pinned to the same ground. */
+  @media (prefers-color-scheme: dark){ :root{ --ground:#FFFFFF; --ink:#101114; } }
+  :root[data-theme="dark"],:root[data-theme="light"]{ --ground:#FFFFFF; --ink:#101114; }
+
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.62;
+    margin:0; padding:0;
+  }
+  .wrap{ display:grid; grid-template-columns:minmax(0,1fr); gap:0; }
+  @media (min-width:1040px){
+    .wrap{ grid-template-columns:264px minmax(0,1fr); align-items:start; }
+  }
+
+  /* ---- jump-to rail: find your place mid-call ---- */
+  nav{
+    border-bottom:1px solid var(--rule); padding:20px 24px; background:var(--ground);
+  }
+  @media (min-width:1040px){
+    nav{
+      position:sticky; top:0; max-height:100vh; overflow-y:auto;
+      border-bottom:0; border-right:1px solid var(--rule); padding:40px 24px 40px 32px;
+    }
+  }
+  nav .navlabel{
+    font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 12px;
+  }
+  nav a{
+    display:block; text-decoration:none; color:var(--ink);
+    padding:4px 0; line-height:1.35; border-radius:3px;
+  }
+  nav .home{ font-size:13px; color:var(--muted); margin:0 0 22px; }
+  nav .home a{ display:inline; color:var(--muted); }
+  nav .home a:hover{ color:var(--ctx); }
+  nav a.toc-l1{ font-weight:700; font-size:14px; margin-top:12px; }
+  nav a.toc-l2{ font-weight:400; font-size:13.5px; color:#3F444C; padding-left:12px; }
+  nav a:hover{ color:var(--ctx); }
+  nav a:focus-visible,main a:focus-visible{ outline:2px solid var(--ctx); outline-offset:2px; }
+
+  main{ padding:36px 24px 96px; max-width:var(--measure); }
+  @media (min-width:1040px){ main{ padding:56px 40px 120px; } }
+
+  /* ---- masthead + legend ---- */
+  .masthead{ margin:0 0 8px; }
+  h1{
+    font-size:clamp(28px,4.2vw,38px); line-height:1.14; font-weight:800;
+    letter-spacing:-.021em; text-wrap:balance; margin:0 0 14px;
+  }
+  .legend{
+    display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center;
+    padding:14px 16px; border:1px solid var(--rule); border-radius:8px;
+    margin:0 0 30px; font-size:13.5px;
+  }
+  .legend b{ font-weight:700; }
+  .legend .sw{ display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+  .legend .say .sw{ background:var(--ink); }
+  .legend .ctxk .sw{ background:var(--ctx); }
+  .legend .ctxk{ color:var(--ctx); }
+
+  /* ---- headings ---- */
+  h2,h3,h4{ color:var(--ink); text-wrap:balance; }
+  h2{
+    font-size:25px; font-weight:800; letter-spacing:-.015em; line-height:1.22;
+    margin:52px 0 14px; padding-top:22px; border-top:2px solid var(--ink);
+  }
+  h3{ font-size:19.5px; font-weight:700; line-height:1.28; margin:34px 0 10px; }
+  h4{ font-size:16.5px; font-weight:700; line-height:1.3; margin:24px 0 8px; }
+  h2:first-child,h3:first-child{ margin-top:0; }
+
+  p{ margin:0 0 13px; }
+  hr{ border:0; border-top:1px solid var(--rule); margin:38px 0; }
+
+  /* ---- backing context ---- */
+  .ctx{ color:var(--ctx); }
+  p.ctx-block,li.ctx-block{ color:var(--ctx); }
+  li.ctx-block::marker{ color:var(--ctx); }
+  /* A context item must not tint the items nested under it — those carry their own
+     classification and are usually lines the rep says. Reset inherited colour. */
+  li.ctx-block > ul,li.ctx-block > ol{ color:var(--ink); }
+  li.ctx-block > ul li::marker,li.ctx-block > ol li::marker{ color:var(--muted); }
+  /* inline notes inside a spoken line stay italic; full context blocks read upright */
+  p:not(.ctx-block) .ctx,li:not(.ctx-block) .ctx{ font-style:italic; }
+  .callout{
+    background:var(--ctx-bg); border:1px solid #D6E4F2; border-left:3px solid var(--ctx);
+    border-radius:8px; padding:16px 18px; margin:0 0 26px; color:var(--ctx);
+  }
+  .callout p{ margin:0 0 9px; }
+  .callout p:last-child{ margin-bottom:0; }
+  .callout strong{ color:var(--ctx); }
+
+  /* ---- lists ---- */
+  ul,ol{ margin:0 0 13px; padding-left:1.4em; }
+  li{ margin:0 0 7px; }
+  li > ul,li > ol{ margin:7px 0 0; }
+  li::marker{ color:var(--muted); }
+  ul ul{ list-style-type:circle; }
+  ul ul ul{ list-style-type:square; }
+  /* distinct markers per level so nested steps don't all read as "1." */
+  ol{ list-style-type:decimal; }
+  ol ol{ list-style-type:lower-alpha; }
+  ol ol ol{ list-style-type:lower-roman; }
+  .mention{ color:var(--muted); font-size:.9em; white-space:nowrap; }
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em;
+    background:#F3F4F6; padding:.1em .35em; border-radius:4px;
+  }
+  strong{ font-weight:700; }
+
+  @media print{
+    nav{ display:none; }
+    body{ font-size:11.5pt; }
+    main{ max-width:none; padding:0; }
+    h2{ break-after:avoid; } h3,h4{ break-after:avoid; }
+    li,p{ break-inside:avoid; }
+    .callout{ background:#F2F7FC !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+
+  /* Section 5's monologue cascades six levels deep in the source; keep the
+     structure but stop the indent eating the measure. */
+  ul ul{ padding-left:1.05em; }
+  .scope{ margin-bottom:26px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav aria-label="Jump to section">
+    <p class="home"><a href="../">&larr; ClientUp sales library</a></p>
+{{NAV}}
+  </nav>
+  <main>
+    <header class="masthead">
+      <h1>Pitch A Call Script</h1>
+      <div class="legend">
+        <span class="say"><span class="sw"></span><b>Black</b> &mdash; say this</span>
+        <span class="ctxk"><span class="sw"></span><b>Blue</b> &mdash; backing context, don't read aloud</span>
+      </div>
+    </header>
+    <aside class="callout scope"><p class="ctx-block"><span class="ctx">Pitch A &mdash; business owners bringing lead generation in-house. This page covers <strong>sections 5 to 9</strong> only: high-level context, the AI tooling walkthrough, support, questions and the 1&ndash;10 fit scale. Opening, discovery, gap maths, pricing and onboarding live in the source doc and are not rendered here yet. The superseded first version of section 5 (struck through in the source) has been left out.</span></p></aside>
+{{BODY}}
+  </main>
+</div>
+
+</body>
+</html>

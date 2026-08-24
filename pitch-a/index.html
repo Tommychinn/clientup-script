@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="ClientUp AI Pitch A call script — internal sales reference.">
+<title>ClientUp Pitch A Script</title>
+<style>
+  :root{
+    --ink:#101114;           /* say-this text + headings */
+    --ctx:#2E7CC4;           /* backing context — light blue, held legible on white */
+    --ctx-bg:#F2F7FC;
+    --rule:#E3E6EB;
+    --muted:#6B7280;
+    --ground:#FFFFFF;
+    --measure:68ch;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  /* Deliberate single-theme page: this is read aloud on live calls and must look
+     identical everywhere, so the dark-mode toggle is pinned to the same ground. */
+  @media (prefers-color-scheme: dark){ :root{ --ground:#FFFFFF; --ink:#101114; } }
+  :root[data-theme="dark"],:root[data-theme="light"]{ --ground:#FFFFFF; --ink:#101114; }
+
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.62;
+    margin:0; padding:0;
+  }
+  .wrap{ display:grid; grid-template-columns:minmax(0,1fr); gap:0; }
+  @media (min-width:1040px){
+    .wrap{ grid-template-columns:264px minmax(0,1fr); align-items:start; }
+  }
+
+  /* ---- jump-to rail: find your place mid-call ---- */
+  nav{
+    border-bottom:1px solid var(--rule); padding:20px 24px; background:var(--ground);
+  }
+  @media (min-width:1040px){
+    nav{
+      position:sticky; top:0; max-height:100vh; overflow-y:auto;
+      border-bottom:0; border-right:1px solid var(--rule); padding:40px 24px 40px 32px;
+    }
+  }
+  nav .navlabel{
+    font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 12px;
+  }
+  nav a{
+    display:block; text-decoration:none; color:var(--ink);
+    padding:4px 0; line-height:1.35; border-radius:3px;
+  }
+  nav .home{ font-size:13px; color:var(--muted); margin:0 0 22px; }
+  nav .home a{ display:inline; color:var(--muted); }
+  nav .home a:hover{ color:var(--ctx); }
+  nav a.toc-l1{ font-weight:700; font-size:14px; margin-top:12px; }
+  nav a.toc-l2{ font-weight:400; font-size:13.5px; color:#3F444C; padding-left:12px; }
+  nav a:hover{ color:var(--ctx); }
+  nav a:focus-visible,main a:focus-visible{ outline:2px solid var(--ctx); outline-offset:2px; }
+
+  main{ padding:36px 24px 96px; max-width:var(--measure); }
+  @media (min-width:1040px){ main{ padding:56px 40px 120px; } }
+
+  /* ---- masthead + legend ---- */
+  .masthead{ margin:0 0 8px; }
+  h1{
+    font-size:clamp(28px,4.2vw,38px); line-height:1.14; font-weight:800;
+    letter-spacing:-.021em; text-wrap:balance; margin:0 0 14px;
+  }
+  .legend{
+    display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center;
+    padding:14px 16px; border:1px solid var(--rule); border-radius:8px;
+    margin:0 0 30px; font-size:13.5px;
+  }
+  .legend b{ font-weight:700; }
+  .legend .sw{ display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+  .legend .say .sw{ background:var(--ink); }
+  .legend .ctxk .sw{ background:var(--ctx); }
+  .legend .ctxk{ color:var(--ctx); }
+
+  /* ---- headings ---- */
+  h2,h3,h4{ color:var(--ink); text-wrap:balance; }
+  h2{
+    font-size:25px; font-weight:800; letter-spacing:-.015em; line-height:1.22;
+    margin:52px 0 14px; padding-top:22px; border-top:2px solid var(--ink);
+  }
+  h3{ font-size:19.5px; font-weight:700; line-height:1.28; margin:34px 0 10px; }
+  h4{ font-size:16.5px; font-weight:700; line-height:1.3; margin:24px 0 8px; }
+  h2:first-child,h3:first-child{ margin-top:0; }
+
+  p{ margin:0 0 13px; }
+  hr{ border:0; border-top:1px solid var(--rule); margin:38px 0; }
+
+  /* ---- backing context ---- */
+  .ctx{ color:var(--ctx); }
+  p.ctx-block,li.ctx-block{ color:var(--ctx); }
+  li.ctx-block::marker{ color:var(--ctx); }
+  /* A context item must not tint the items nested under it — those carry their own
+     classification and are usually lines the rep says. Reset inherited colour. */
+  li.ctx-block > ul,li.ctx-block > ol{ color:var(--ink); }
+  li.ctx-block > ul li::marker,li.ctx-block > ol li::marker{ color:var(--muted); }
+  /* inline notes inside a spoken line stay italic; full context blocks read upright */
+  p:not(.ctx-block) .ctx,li:not(.ctx-block) .ctx{ font-style:italic; }
+  .callout{
+    background:var(--ctx-bg); border:1px solid #D6E4F2; border-left:3px solid var(--ctx);
+    border-radius:8px; padding:16px 18px; margin:0 0 26px; color:var(--ctx);
+  }
+  .callout p{ margin:0 0 9px; }
+  .callout p:last-child{ margin-bottom:0; }
+  .callout strong{ color:var(--ctx); }
+
+  /* ---- lists ---- */
+  ul,ol{ margin:0 0 13px; padding-left:1.4em; }
+  li{ margin:0 0 7px; }
+  li > ul,li > ol{ margin:7px 0 0; }
+  li::marker{ color:var(--muted); }
+  ul ul{ list-style-type:circle; }
+  ul ul ul{ list-style-type:square; }
+  /* distinct markers per level so nested steps don't all read as "1." */
+  ol{ list-style-type:decimal; }
+  ol ol{ list-style-type:lower-alpha; }
+  ol ol ol{ list-style-type:lower-roman; }
+  .mention{ color:var(--muted); font-size:.9em; white-space:nowrap; }
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.9em;
+    background:#F3F4F6; padding:.1em .35em; border-radius:4px;
+  }
+  strong{ font-weight:700; }
+
+  @media print{
+    nav{ display:none; }
+    body{ font-size:11.5pt; }
+    main{ max-width:none; padding:0; }
+    h2{ break-after:avoid; } h3,h4{ break-after:avoid; }
+    li,p{ break-inside:avoid; }
+    .callout{ background:#F2F7FC !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+
+  /* Section 5's monologue cascades six levels deep in the source; keep the
+     structure but stop the indent eating the measure. */
+  ul ul{ padding-left:1.05em; }
+  .scope{ margin-bottom:26px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav aria-label="Jump to section">
+    <p class="home"><a href="../">&larr; ClientUp sales library</a></p>
+    <a class="toc-l1" href="#5-a-high-level-context">5. A High-Level Context</a>
+    <a class="toc-l1" href="#6-ai-tooling-platform-implementation-usage">6. AI Tooling — Platform Implementation &amp; Usage</a>
+    <a class="toc-l2" href="#6-1-initial-orientation">6.1 Initial Orientation</a>
+    <a class="toc-l2" href="#6-2-skills-installation">6.2 Skills Installation</a>
+    <a class="toc-l2" href="#6-3-native-platform-tech">6.3 Native Platform Tech</a>
+    <a class="toc-l2" href="#6-4-scale">6.4 Scale</a>
+    <a class="toc-l1" href="#7-support-workshops">7. Support &amp; Workshops</a>
+    <a class="toc-l1" href="#8-questions">8. Questions</a>
+    <a class="toc-l1" href="#9-the-1-10-fit-scale">9. The 1–10 Fit Scale</a>
+  </nav>
+  <main>
+    <header class="masthead">
+      <h1>Pitch A Call Script</h1>
+      <div class="legend">
+        <span class="say"><span class="sw"></span><b>Black</b> &mdash; say this</span>
+        <span class="ctxk"><span class="sw"></span><b>Blue</b> &mdash; backing context, don't read aloud</span>
+      </div>
+    </header>
+    <aside class="callout scope"><p class="ctx-block"><span class="ctx">Pitch A &mdash; business owners bringing lead generation in-house. This page covers <strong>sections 5 to 9</strong> only: high-level context, the AI tooling walkthrough, support, questions and the 1&ndash;10 fit scale. Opening, discovery, gap maths, pricing and onboarding live in the source doc and are not rendered here yet. The superseded first version of section 5 (struck through in the source) has been left out.</span></p></aside>
+<h2 id="5-a-high-level-context">5. A High-Level Context</h2>
+<ul><li>
+So we’ve run a coaching program called Insider Group for a couple of years that helps people either generate leads at scale for their businesses or build PPL marketing businesses to sell leads to others
+<ul><li>
+And we’ve had some pretty ridiculous results. Like $0-1M/m in 6 months. And the community now generates collectively well over 300,000 leads per month at last count
+<ul><li>
+But we realised that coaching programs are becoming a bit outdated
+<ul><li>
+Why force people to go through a ton of tutorials to find answers when you can train AI on that same knowledge?
+<ul><li>
+So you can either let people just ask questions directly to your trained AI and get the knowledge
+<ul><li>
+Or use AI tools trained on the processes that just do the implementation for you
+</li></ul>
+</li></ul>
+</li></ul>
+</li></ul>
+</li></ul>
+</li><li>
+So we built ClientUp AI, which does just that
+<ul><li>
+And so did you come across ClientUp, our lead gen business whilst booking the call?
+<ul><li>
+Ok we’ve trained the AI on a combination of our knowledge from our lead gen business ClientUp which does about $10M a year revenue, delivers 10,000+ leads per month and has been operating for 6 years, generating well over $100M in revenue for our clients
+<ul><li>
+And then insights and data from training our coaching program community and helping them scale their businesses
+</li></ul>
+</li></ul>
+</li></ul>
+</li></ul>
+<h2 id="6-ai-tooling-platform-implementation-usage">6. AI Tooling — Platform Implementation &amp; Usage</h2>
+<p>And so the first thing I wanna talk to you about is the actual AI tooling within the platform. So this is basically broken up into two different areas.</p>
+<ul><li>
+Firstly, we have skills installation and usage. Do you know what skills are within the context of AI?
+<ul><li>
+<span class="ctx">(explain if needed)</span> Think of them like AI SOPs that self execute. E.g. here is exactly how you need to do a specific task, and here are the conditions under which you need to do it.
+</li><li>
+Got it. So we have all the hyper-specific skills for the different areas of your business that you need in order to grow.
+</li></ul>
+</li><li>
+And then secondly, we have native AI tech built into the platform for actions in different areas of your business that relate to growth, whether that's ads, creatives, funnels, outbound prospecting, etc. And so I'll go into each of these individually.
+</li></ul>
+<h3 id="6-1-initial-orientation">6.1 Initial Orientation</h3>
+<p>I’m going to share my screen. Let me know when you can see it.</p>
+<p>So you know what an AI Copilot is?</p>
+<p>This basically becomes an AI co-pilot for pretty much the entirety of your business’s growth.</p>
+<p>The starting point is that you obviously have to give it context or background. It will walk you through an onboarding process to get set up, connecting your AI client, whether that’s GPT or Claude.</p>
+<p>It will then walk you through an interview process to reach a point of understanding exactly where the bottlenecks are for both new revenue growth, and also fulfilment.</p>
+<p>After that it gives you hyper-specific directions on what you need to focus on in what order:</p>
+<ul><li>
+Which AI skills specifically to set up within the platform, guiding you how to get them set up
+</li><li>
+As well as the AI native tools that we have, and how to use them
+</li></ul>
+<p>And so this gets converted into a custom action plan of steps and things for you to go through on a daily basis, with actionable measurable items to ensure that you're on track.</p>
+<p>And so the point is this isn’t some generic action plan, but something tailored to your actual business that is dynamic, and will update as you give more feedback and context to the AI.</p>
+<p>And it guides you through exactly what you need to do to make sure that you complete each action correctly. So it’s basically very difficult for you to mess up unless you just actively choose to not follow its guidance.</p>
+<p>And this is all quite high level at this point. I’ll go into quite a bit of detail, but do you have any questions so far?</p>
+<h3 id="6-2-skills-installation">6.2 Skills Installation</h3>
+<p>Do you already use AI skills to improve the output of your AI for your business?</p>
+<ul><li>
+What’s working well in your skills usage, and I guess where have you found limitations?
+</li></ul>
+<p>The biggest problem is that AI skills are typically either open-source, or even if you do pay for them, they’re created by people who have low levels of data insight into the problem that their skill is trying to solve.</p>
+<p>And so the skills typically have either marginal improvements at max versus what GPT or Claude will do out the box, or they’re just actively worse.</p>
+<p>I talked through a bit about the background. This isn't to toot our own horn but we have top 0.1% insights and knowledge around business growth and lead generation from:</p>
+<ul><li>
+having not just done this ourselves, generating hundreds of thousands of leads with our own lead gen business
+</li><li>
+But teaching a community how to generate several hundred thousand leads per month every single month across pretty much every industry where companies need leads or calls in order to survive
+</li></ul>
+<p>And so our skills are trained on data and processes that have created ridiculous levels of success, which is why they actually work.</p>
+<p>Do you know who Chamath Palihapitiya is?</p>
+<p>He was one of the very early Facebook guys and is now a multibillionaire AI venture capital investor, one of the most successful guys on the planet focused on AI. He said something in 2023 on a podcast he runs with some other tech billionaires that’s proved highly accurate:</p>
+<p>Which is that we’ll reach a point where the differentiation in AI output will depend on the quality of proprietary data that the AI has access to. Have you seen how many lawsuits and contention there’s been against the AI giants for copyright access?</p>
+<p>Obviously they want the best data to train their models on and there’s a massive fight to get access to it.</p>
+<p>And this is a prime example: our data is just better because we’ve personally spent over $10M generating leads for clients, and guided 1000 and something businesses on their growth, which is why the skills work better and the output is better in the ability in turn to grow your business.</p>
+<p>So instead of wasting time trying to piece together combinations of skills from different sources, hoping that people actually have the data and ability to train them correctly to give a valuable output. And then wasting money finding out that they’ve done a half job of it, we just give you what we know works, and are using to run our own lead gen business, and community members are using for generating leads for their businesses profitably right now. Just don’t bang your head against a wall, right?</p>
+<p>And so we’ve got created these for about 60 areas of business growth. Obviously you can see my screen. Which of these in particular do you want to go into in more detail, whether that’s paid traffic, offer positioning, prospecting?</p>
+<p class="ctx-block">Talk about whatever skills they ask about</p>
+<h3 id="6-3-native-platform-tech">6.3 Native Platform Tech</h3>
+<p>Now there are some things best done with skills, but there are other things where you're going to get a better output by using native tech. And so we've combined the two within the platform to give you the overall best output.</p>
+<p>Part of the issue with most software for business growth is that if you’re actually going to use the best tools in the market, you'll typically be scattered across five different platforms that don't really speak to each other.</p>
+<p>You're trying to manage data insights from all over the place if you're trying to run ads at scale, which is one of the biggest barriers that prevent people from generating leads effectively, if they’re not already top 1% marketers.</p>
+<ul><li>
+Do you already use software for making creatives, running ads, managing the insights, etc?
+</li><li>
+Where are the bottlenecks or limits in these softwares speaking to each other, and I guess preventing you from having a seamless experience with them?
+</li></ul>
+<p>So in terms of different areas, we put all the tech you need to generate leads at scale in one place so you can generate copy and images specific to your niche.</p>
+<p><span class="ctx">(If they’re already running creatives)</span> Do you currently use primarily static ads or video content?</p>
+<p>You can also use UGC, either by putting in your own script or by using the AI to generate the script. You can then directly spy on and scrape your competitors' ads for inspiration that you can use as the starting point. Filtering for the ads that have the most impressions and have been running the longest so you know these are the ones that are actually making money for your competitors.</p>
+<p>You then have the highest chance of creating ads that are going to get the right people through the door for you and in turn the best chance of converting them into a paying client.</p>
+<p>And for context, this is how we generate upwards of 80% of the creatives we use right now for ClientUp, our lead gen business. So we use this tech internally to run our business, and so does the community now. We’ve pushed everyone over to it because they get better outputs.</p>
+<p>And so that’s creatives. What are currently using to build your funnels?</p>
+<p>Ok, so it's the same structure for funnels. You can either directly use the AI to build based on what we've trained it are the best practises for given industries right now.</p>
+<p>Alternatively if there are examples of funnels that you've seen from your competitors or someone that you like, you can paste the URL and it will directly clone that funnel. After that you can chat with the AI and it will tweak it to put it on brand for your business or make whatever changes you need. And you can connect it to your domain.</p>
+<p>It’s funny. When we started Insider Group, coaching people on how to generate leads at scale, Jakub at that point was doing a bit over $500k/m with his lead gen business ClientUp with a 3 person team including himself, working about 30-60 minutes per day on the business, because it’s just super scalable.</p>
+<p>He’s now downsized to a 2 person team with the same revenue output and same if not lower time requirement for him because our platform is managing so much of the lead gen process for him. He doesn’t need someone building stacks of creatives every day, or managing the campaigns. The AI does it, and that’s what it enables you to do too.</p>
+<p>I mean obvious question, but to what extent does this affect the rate at which you can grow the business if lead generation performance isn’t a bottleneck?</p>
+<h3 id="6-4-scale">6.4 Scale</h3>
+<p>So when we started helping people generate leads at scale, we did that with the experience of having built our own lead generation business. To have succeeded in that, we had to:</p>
+<ul><li>
+find out what the right niches were
+</li><li>
+get clients in those niches
+</li><li>
+structure contracts
+</li><li>
+manage the entire lead delivery, and integration process
+</li></ul>
+<p>And so at this point, once you've solved lead generation as a bottleneck within your business, it's up to you to choose whether you want to:</p>
+<ul><li>
+scale a sales team
+</li><li>
+run a franchise model and be the lead provider to your own franchisees
+</li><li>
+just directly sell leads to other people in your space who aren't direct competitors, e.g. they’re in different geographies or areas where you can't serve clients
+</li></ul>
+<p>You don't have to decide at this second exactly which route you'll take. The first point is getting to the level of lead gen where you have these options. Obviously as you know, we've done 17 million in revenue over the past however many years, with over 70% margins by selling leads to people, so the opportunity is there.</p>
+<h2 id="7-support-workshops">7. Support &amp; Workshops</h2>
+<p>Obviously we don't just give you AI software and leave you on your own, despite the fact that it's a ridiculously powerful AI copilot in of itself. You start with an implementation call, which builds on what we've talked about here, helping you get set up with the platform and answer any questions that you may have had between us having this conversation and then you're getting onboarded.</p>
+<p>You get weekly workshop calls with other business owners going through the exact same process, in many cases people in your industry who are two or three steps ahead of you. For example we have guys in the community doing over $100M/year.</p>
+<p>And then you have a support channel with our team, client success managers across lead gen, client acquisition, and tech &amp; AI. And so obviously you can book calls with them as much as you need: ads, funnels, landing pages, payments infrastructure, whatever you're focused on.</p>
+<p>But the point is just make sure you’re never left bouncing around for a solution to something.</p>
+<p>I mean reasonably do you think that’s enough support to help you get unstuck when you need it?</p>
+<h2 id="8-questions">8. Questions</h2>
+<p class="ctx-block"><strong>Make sure everything is clear enough for them to be able to logistically make a decision</strong></p>
+<p>Ok, well that’s everything in terms of how it works. What questions do you have specifically in relation to the process?</p>
+<h2 id="9-the-1-10-fit-scale">9. The 1–10 Fit Scale</h2>
+<p class="ctx-block">Build note: the source repeats section 8’s opening line here verbatim. Shown below as written — don’t ask it twice.</p>
+<p>Ok, well that’s everything in terms of how it works. What questions do you have specifically in relation to the process?</p>
+<p class="ctx-block"><strong>(Only answer real questions. If they’re asking irrelevant BS move to temp check)</strong></p>
+<p>Ok, and cliché question, but on a scale of 1-10: 1 being I hate this guy and wanna throw my laptop out the window, and 10 being this is exactly what I need in order to <strong>[do XYZ]</strong>, where is this on that scale of 1-10, specifically in relation to your situation?</p>
+<p class="ctx-block"><strong>9 or 10:</strong></p>
+<ul><li>
+Awesome, what makes it a 9/10?
+</li></ul>
+<p class="ctx-block"><strong>7 or 8:</strong></p>
+<ul><li>
+Ok, what makes it a 7/8?
+</li><li>
+What is missing from it being a 10 right now?
+<ul><li class="ctx-block">
+Objection handle
+</li></ul>
+</li></ul>
+<p class="ctx-block"><strong>6 or below:</strong></p>
+<ul><li>
+That’s rough. What makes it a <strong>[number]</strong>
+<ul><li class="ctx-block">
+Objection handle
+</li></ul>
+</li></ul>
+  </main>
+</div>
+
+</body>
+</html>
