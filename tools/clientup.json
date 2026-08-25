@@ -3,7 +3,7 @@
   "blocks": {
     "0dae5998-6672-4a27-9c93-a9026201443a": {
       "id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "version": 816,
+      "version": 827,
       "type": "page",
       "properties": {
         "title": [
@@ -64,9 +64,11 @@
         "3c5c702b-1a8a-80c0-b754-cfe75193d939",
         "3c6c702b-1a8a-802f-8d36-fd8d6db9383c",
         "3c5c702b-1a8a-8009-9b57-ca12af204228",
+        "3c6c702b-1a8a-80dd-acc6-d6ac380be205",
         "3c5c702b-1a8a-80c1-b60e-fe0fdc412eaa",
         "3c5c702b-1a8a-80b6-a6ee-c2d55cbf602a",
         "496cae34-ed8c-4087-a95f-bc114346eec3",
+        "3c7c702b-1a8a-8006-9d44-d6d7fd6286e0",
         "3c6c702b-1a8a-8037-8b79-eb8f4d063701",
         "3c6c702b-1a8a-80bf-b110-c2c52b425d93",
         "3c6c702b-1a8a-804f-acad-f8d2cc495490",
@@ -84,11 +86,6 @@
         "3c5c702b-1a8a-8067-8f9c-df694b061ef0",
         "3c5c702b-1a8a-8028-9361-c613e4a9f0f4",
         "e0011642-9878-45b2-aa4b-8072fb0c9ba9",
-        "3c5c702b-1a8a-80f5-b650-eb663196ab64",
-        "3c5c702b-1a8a-8039-8562-f0a514a75037",
-        "3c5c702b-1a8a-80d7-a245-c337bff69079",
-        "3c5c702b-1a8a-8032-abc6-c4b8b1ae29fe",
-        "3c5c702b-1a8a-8010-bee3-e9aa09fc856c",
         "3c5c702b-1a8a-809d-8e6c-ce10115064a4",
         "3c5c702b-1a8a-80c3-8c61-e2dc2615084d",
         "3c5c702b-1a8a-8017-bc7b-d2656c7f4503",
@@ -156,7 +153,7 @@
         }
       ],
       "created_time": 1786477682588,
-      "last_edited_time": 1787603700100,
+      "last_edited_time": 1787679561874,
       "parent_id": "29865086-909a-4496-af6c-ec11f45323d3",
       "parent_table": "block",
       "alive": true,
@@ -20266,17 +20263,17 @@
     },
     "3c5c702b-1a8a-8009-9b57-ca12af204228": {
       "id": "3c5c702b-1a8a-8009-9b57-ca12af204228",
-      "version": 1397,
+      "version": 1400,
       "type": "text",
       "properties": {
         "title": [
           [
-            "So instead of wasting time trying to piece together combinations of skills from different sources, paying to find out that they’ve done a half job of it because they never had the expertise, we just give you what we know works. It’s what we’re using to run our own lead gen business, and community members are using for generating leads for their businesses profitably right now. Just don’t bang your head against a wall, right?"
+            "So instead of wasting time trying to piece together combinations of skills from different sources, paying to find out that they’ve done a half job of it because they never had the expertise, we just give you what we know works. "
           ]
         ]
       },
       "created_time": 1787513288867,
-      "last_edited_time": 1787603293250,
+      "last_edited_time": 1787604167629,
       "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
       "parent_table": "block",
       "alive": true,
@@ -20284,9 +20281,9 @@
       "crdt_format_version": 1,
       "crdt_data": {
         "title": {
-          "r": "WVdgI5RZffE8rItl4UMrGQ,\"start\",\"end\"",
+          "r": "WVdgI5RZffE8rItl4UMrGQ,\"start\",[\"-Cs3JioRl5Zt\",655]",
           "n": {
-            "WVdgI5RZffE8rItl4UMrGQ,\"start\",\"end\"": {
+            "WVdgI5RZffE8rItl4UMrGQ,\"start\",[\"-Cs3JioRl5Zt\",655]": {
               "s": {
                 "x": "WVdgI5RZffE8rItl4UMrGQ",
                 "i": [
@@ -20588,6 +20585,80 @@
                     ],
                     "l": 1,
                     "c": " "
+                  },
+                  {
+                    "t": "p",
+                    "i": [
+                      "-Cs3JioRl5Zt",
+                      655
+                    ],
+                    "o": [
+                      "-Cs3JioRl5Zt",
+                      633
+                    ]
+                  }
+                ],
+                "l": "L"
+              },
+              "c": []
+            }
+          }
+        }
+      }
+    },
+    "3c6c702b-1a8a-80dd-acc6-d6ac380be205": {
+      "id": "3c6c702b-1a8a-80dd-acc6-d6ac380be205",
+      "version": 4,
+      "type": "text",
+      "properties": {
+        "title": [
+          [
+            "It’s what we’re using to run our own lead gen business, and community members are using for generating leads for their businesses profitably right now. Just don’t bang your head against a wall, right?"
+          ]
+        ]
+      },
+      "created_time": 1787604167624,
+      "last_edited_time": 1787604167629,
+      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
+      "parent_table": "block",
+      "alive": true,
+      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
+      "crdt_format_version": 1,
+      "crdt_data": {
+        "title": {
+          "r": "DcX18av0blKSoKoLll9_OA,\"start\",\"end\"",
+          "n": {
+            "DcX18av0blKSoKoLll9_OA,\"start\",\"end\"": {
+              "s": {
+                "x": "DcX18av0blKSoKoLll9_OA",
+                "i": [
+                  {
+                    "t": "s"
+                  },
+                  {
+                    "t": "e"
+                  }
+                ],
+                "l": ""
+              },
+              "c": [
+                "WVdgI5RZffE8rItl4UMrGQ,[\"-Cs3JioRl5Zt\",655],\"end\""
+              ]
+            },
+            "WVdgI5RZffE8rItl4UMrGQ,[\"-Cs3JioRl5Zt\",655],\"end\"": {
+              "s": {
+                "x": "WVdgI5RZffE8rItl4UMrGQ",
+                "i": [
+                  {
+                    "t": "p",
+                    "i": [
+                      "-Cs3JioRl5Zt",
+                      655
+                    ],
+                    "o": [
+                      "-Cs3JioRl5Zt",
+                      633
+                    ]
                   },
                   {
                     "t": "t",
@@ -21188,7 +21259,7 @@
                     "t": "e"
                   }
                 ],
-                "l": ""
+                "l": "l"
               },
               "c": [
                 "AY73RY1pvNJQNz6MVBxWRA,[\"-Cs3JioRl5Zt\",216],\"end\""
@@ -22413,6 +22484,216 @@
                   }
                 ],
                 "l": "?"
+              },
+              "c": []
+            }
+          }
+        }
+      }
+    },
+    "3c7c702b-1a8a-8006-9d44-d6d7fd6286e0": {
+      "id": "3c7c702b-1a8a-8006-9d44-d6d7fd6286e0",
+      "version": 119,
+      "type": "text",
+      "properties": {
+        "title": [
+          [
+            "(Share native tech on platform as you go through this)",
+            [
+              [
+                "b"
+              ],
+              [
+                "i"
+              ]
+            ]
+          ]
+        ]
+      },
+      "created_time": 1787679464772,
+      "last_edited_time": 1787679481720,
+      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
+      "parent_table": "block",
+      "alive": true,
+      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
+      "crdt_format_version": 1,
+      "crdt_data": {
+        "title": {
+          "r": "WmxaApZvEZ442XDZLZPCyg,\"start\",\"end\"",
+          "n": {
+            "WmxaApZvEZ442XDZLZPCyg,\"start\",\"end\"": {
+              "s": {
+                "x": "WmxaApZvEZ442XDZLZPCyg",
+                "i": [
+                  {
+                    "t": "s"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      57
+                    ],
+                    "o": "start",
+                    "l": 1,
+                    "c": "(",
+                    "b": [
+                      {
+                        "t": "a",
+                        "x": "WmxaApZvEZ442XDZLZPCyg",
+                        "l": "",
+                        "i": [
+                          "du46fjSHEJ6t",
+                          58
+                        ],
+                        "s": {
+                          "i": [
+                            "du46fjSHEJ6t",
+                            57
+                          ],
+                          "a": "b"
+                        },
+                        "e": {
+                          "i": [
+                            "du46fjSHEJ6t",
+                            1
+                          ],
+                          "a": "b"
+                        },
+                        "a": [
+                          "b"
+                        ]
+                      },
+                      {
+                        "t": "a",
+                        "x": "WmxaApZvEZ442XDZLZPCyg",
+                        "l": "",
+                        "i": [
+                          "du46fjSHEJ6t",
+                          59
+                        ],
+                        "s": {
+                          "i": [
+                            "du46fjSHEJ6t",
+                            57
+                          ],
+                          "a": "b"
+                        },
+                        "e": {
+                          "i": [
+                            "du46fjSHEJ6t",
+                            1
+                          ],
+                          "a": "b"
+                        },
+                        "a": [
+                          "i"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      1
+                    ],
+                    "o": "start",
+                    "l": 1,
+                    "c": "S",
+                    "b": [
+                      {
+                        "t": "a",
+                        "x": "WmxaApZvEZ442XDZLZPCyg",
+                        "l": "",
+                        "i": [
+                          "du46fjSHEJ6t",
+                          2
+                        ],
+                        "s": {
+                          "i": [
+                            "du46fjSHEJ6t",
+                            1
+                          ],
+                          "a": "b"
+                        },
+                        "e": {
+                          "i": "end",
+                          "a": "b"
+                        },
+                        "a": [
+                          "b"
+                        ]
+                      },
+                      {
+                        "t": "a",
+                        "x": "WmxaApZvEZ442XDZLZPCyg",
+                        "l": "",
+                        "i": [
+                          "du46fjSHEJ6t",
+                          3
+                        ],
+                        "s": {
+                          "i": [
+                            "du46fjSHEJ6t",
+                            1
+                          ],
+                          "a": "b"
+                        },
+                        "e": {
+                          "i": "end",
+                          "a": "b"
+                        },
+                        "a": [
+                          "i"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      4
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      1
+                    ],
+                    "l": 8,
+                    "c": "hare nat"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      13
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      11
+                    ],
+                    "l": 44,
+                    "c": "ive tech on platform as you go through this)"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      12
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      11
+                    ],
+                    "l": -1
+                  },
+                  {
+                    "t": "e",
+                    "b": []
+                  }
+                ],
+                "l": ""
               },
               "c": []
             }
@@ -23784,17 +24065,17 @@
     },
     "3c5c702b-1a8a-8029-b5ac-e70c75e4d1f1": {
       "id": "3c5c702b-1a8a-8029-b5ac-e70c75e4d1f1",
-      "version": 145,
+      "version": 163,
       "type": "text",
       "properties": {
         "title": [
           [
-            "So in terms of different areas, we put all the tech you need to generate leads at scale in one place so you can generate copy and images specific to your niche. "
+            "So in terms of different areas, we put all the tech you need to generate leads at scale in one place so you can generate copy and ads specific to your niche. "
           ]
         ]
       },
       "created_time": 1787516884982,
-      "last_edited_time": 1787517941531,
+      "last_edited_time": 1787679445901,
       "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
       "parent_table": "block",
       "alive": true,
@@ -23911,8 +24192,96 @@
                       "yzn6zZD8ralw",
                       1
                     ],
-                    "l": 121,
-                    "c": "e put all the tech you need to generate leads at scale in one place so you can generate copy and images specific to your "
+                    "l": 97,
+                    "c": "e put all the tech you need to generate leads at scale in one place so you can generate copy and "
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      351
+                    ],
+                    "o": [
+                      "yzn6zZD8ralw",
+                      98
+                    ],
+                    "l": 1,
+                    "c": "a"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      353
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      351
+                    ],
+                    "l": 1,
+                    "c": "d"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      355
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      353
+                    ],
+                    "l": 2,
+                    "c": "s "
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      354
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      353
+                    ],
+                    "l": -1
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      352
+                    ],
+                    "o": [
+                      "du46fjSHEJ6t",
+                      351
+                    ],
+                    "l": -1
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "yzn6zZD8ralw",
+                      99
+                    ],
+                    "o": [
+                      "yzn6zZD8ralw",
+                      98
+                    ],
+                    "l": -7
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "yzn6zZD8ralw",
+                      106
+                    ],
+                    "o": [
+                      "yzn6zZD8ralw",
+                      105
+                    ],
+                    "l": 17,
+                    "c": "specific to your "
                   },
                   {
                     "t": "t",
@@ -27490,7 +27859,7 @@
     },
     "e0011642-9878-45b2-aa4b-8072fb0c9ba9": {
       "id": "e0011642-9878-45b2-aa4b-8072fb0c9ba9",
-      "version": 28,
+      "version": 29,
       "type": "sub_sub_header",
       "properties": {
         "title": [
@@ -27780,40 +28149,21 @@
                 ],
                 "l": "l"
               },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "3c5c702b-1a8a-80f5-b650-eb663196ab64": {
-      "id": "3c5c702b-1a8a-80f5-b650-eb663196ab64",
-      "version": 173,
-      "type": "text",
-      "properties": {
-        "title": [
-          [
-            "So when we started helping people generate leads at scale, we did that with the experience of having built our own lead generation business. To have succeeded in that, we had to:"
-          ]
-        ]
-      },
-      "created_time": 1787519989896,
-      "last_edited_time": 1787520081047,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "7T6XkmC0ZkVO_oxJYORUlA,\"start\",\"end\"",
-          "n": {
-            "7T6XkmC0ZkVO_oxJYORUlA,\"start\",\"end\"": {
+              "c": [
+                "7T6XkmC0ZkVO_oxJYORUlA,[\"du46fjSHEJ6t\",300],\"end\""
+              ]
+            },
+            "7T6XkmC0ZkVO_oxJYORUlA,[\"du46fjSHEJ6t\",300],\"end\"": {
               "s": {
                 "x": "7T6XkmC0ZkVO_oxJYORUlA",
                 "i": [
                   {
-                    "t": "s"
+                    "t": "p",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      300
+                    ],
+                    "o": "start"
                   },
                   {
                     "t": "t",
@@ -27822,8 +28172,7 @@
                       229
                     ],
                     "o": "start",
-                    "l": 6,
-                    "c": "So whe"
+                    "l": -6
                   },
                   {
                     "t": "t",
@@ -27835,8 +28184,7 @@
                       "4ip6dEEnnpm8",
                       234
                     ],
-                    "l": 3,
-                    "c": "n w"
+                    "l": -3
                   },
                   {
                     "t": "t",
@@ -27857,20 +28205,7 @@
                       1
                     ],
                     "o": "start",
-                    "l": -1
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "2UXNN9QryY_s",
-                      2
-                    ],
-                    "o": [
-                      "2UXNN9QryY_s",
-                      1
-                    ],
-                    "l": 2,
-                    "c": "e "
+                    "l": -3
                   },
                   {
                     "t": "t",
@@ -27882,8 +28217,7 @@
                       "2UXNN9QryY_s",
                       3
                     ],
-                    "l": 7,
-                    "c": "started"
+                    "l": -7
                   },
                   {
                     "t": "t",
@@ -27955,20 +28289,7 @@
                       "2UXNN9QryY_s",
                       26
                     ],
-                    "l": -12
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "2UXNN9QryY_s",
-                      39
-                    ],
-                    "o": [
-                      "2UXNN9QryY_s",
-                      38
-                    ],
-                    "l": 31,
-                    "c": " helping people generate leads "
+                    "l": -43
                   },
                   {
                     "t": "t",
@@ -27980,8 +28301,7 @@
                       "2UXNN9QryY_s",
                       69
                     ],
-                    "l": 8,
-                    "c": "at scale"
+                    "l": -8
                   },
                   {
                     "t": "t",
@@ -27993,20 +28313,7 @@
                       "2UXNN9QryY_s",
                       69
                     ],
-                    "l": -20
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "2UXNN9QryY_s",
-                      90
-                    ],
-                    "o": [
-                      "2UXNN9QryY_s",
-                      89
-                    ],
-                    "l": 2,
-                    "c": ", "
+                    "l": -22
                   },
                   {
                     "t": "t",
@@ -28018,8 +28325,7 @@
                       "2UXNN9QryY_s",
                       91
                     ],
-                    "l": 80,
-                    "c": "we did that with the experience of having built our own lead generation business"
+                    "l": -80
                   },
                   {
                     "t": "t",
@@ -28031,20 +28337,7 @@
                       "2UXNN9QryY_s",
                       91
                     ],
-                    "l": -24
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "2UXNN9QryY_s",
-                      116
-                    ],
-                    "o": [
-                      "2UXNN9QryY_s",
-                      115
-                    ],
-                    "l": 5,
-                    "c": ". To "
+                    "l": -29
                   },
                   {
                     "t": "t",
@@ -28056,8 +28349,7 @@
                       "2UXNN9QryY_s",
                       120
                     ],
-                    "l": 11,
-                    "c": "have succee"
+                    "l": -11
                   },
                   {
                     "t": "t",
@@ -28069,8 +28361,7 @@
                       "4ip6dEEnnpm8",
                       256
                     ],
-                    "l": 22,
-                    "c": "ded in that, we had to"
+                    "l": -22
                   },
                   {
                     "t": "t",
@@ -28094,61 +28385,29 @@
                       "2UXNN9QryY_s",
                       120
                     ],
-                    "l": -17
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "2UXNN9QryY_s",
-                      138
-                    ],
-                    "o": [
-                      "2UXNN9QryY_s",
-                      137
-                    ],
-                    "l": 1,
-                    "c": ":"
+                    "l": -18
                   },
                   {
                     "t": "e"
                   }
                 ],
-                "l": ""
+                "l": "l"
               },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "3c5c702b-1a8a-8039-8562-f0a514a75037": {
-      "id": "3c5c702b-1a8a-8039-8562-f0a514a75037",
-      "version": 3,
-      "type": "bulleted_list",
-      "properties": {
-        "title": [
-          [
-            "find out what the right niches were"
-          ]
-        ]
-      },
-      "created_time": 1787519989898,
-      "last_edited_time": 1787519989918,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "LCSbscN8CqoG9sy8F2qxLw,\"start\",\"end\"",
-          "n": {
-            "LCSbscN8CqoG9sy8F2qxLw,\"start\",\"end\"": {
+              "c": [
+                "LCSbscN8CqoG9sy8F2qxLw,[\"du46fjSHEJ6t\",56],\"end\""
+              ]
+            },
+            "LCSbscN8CqoG9sy8F2qxLw,[\"du46fjSHEJ6t\",56],\"end\"": {
               "s": {
                 "x": "LCSbscN8CqoG9sy8F2qxLw",
                 "i": [
                   {
-                    "t": "s"
+                    "t": "p",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      56
+                    ],
+                    "o": "start"
                   },
                   {
                     "t": "t",
@@ -28157,49 +28416,29 @@
                       1
                     ],
                     "o": "start",
-                    "l": 35,
-                    "c": "find out what the right niches were"
+                    "l": -35
                   },
                   {
                     "t": "e"
                   }
                 ],
-                "l": ""
+                "l": "l"
               },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "3c5c702b-1a8a-80d7-a245-c337bff69079": {
-      "id": "3c5c702b-1a8a-80d7-a245-c337bff69079",
-      "version": 3,
-      "type": "bulleted_list",
-      "properties": {
-        "title": [
-          [
-            "get clients in those niches"
-          ]
-        ]
-      },
-      "created_time": 1787519989899,
-      "last_edited_time": 1787519989918,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "BIHKapHZ7AKh_WwLLsfhew,\"start\",\"end\"",
-          "n": {
-            "BIHKapHZ7AKh_WwLLsfhew,\"start\",\"end\"": {
+              "c": [
+                "BIHKapHZ7AKh_WwLLsfhew,[\"du46fjSHEJ6t\",48],\"end\""
+              ]
+            },
+            "BIHKapHZ7AKh_WwLLsfhew,[\"du46fjSHEJ6t\",48],\"end\"": {
               "s": {
                 "x": "BIHKapHZ7AKh_WwLLsfhew",
                 "i": [
                   {
-                    "t": "s"
+                    "t": "p",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      48
+                    ],
+                    "o": "start"
                   },
                   {
                     "t": "t",
@@ -28208,49 +28447,29 @@
                       1
                     ],
                     "o": "start",
-                    "l": 27,
-                    "c": "get clients in those niches"
+                    "l": -27
                   },
                   {
                     "t": "e"
                   }
                 ],
-                "l": ""
+                "l": "l"
               },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "3c5c702b-1a8a-8032-abc6-c4b8b1ae29fe": {
-      "id": "3c5c702b-1a8a-8032-abc6-c4b8b1ae29fe",
-      "version": 3,
-      "type": "bulleted_list",
-      "properties": {
-        "title": [
-          [
-            "structure contracts"
-          ]
-        ]
-      },
-      "created_time": 1787519989899,
-      "last_edited_time": 1787519989918,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "9pT1d_c0GZExa9hvy15NVw,\"start\",\"end\"",
-          "n": {
-            "9pT1d_c0GZExa9hvy15NVw,\"start\",\"end\"": {
+              "c": [
+                "9pT1d_c0GZExa9hvy15NVw,[\"du46fjSHEJ6t\",40],\"end\""
+              ]
+            },
+            "9pT1d_c0GZExa9hvy15NVw,[\"du46fjSHEJ6t\",40],\"end\"": {
               "s": {
                 "x": "9pT1d_c0GZExa9hvy15NVw",
                 "i": [
                   {
-                    "t": "s"
+                    "t": "p",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      40
+                    ],
+                    "o": "start"
                   },
                   {
                     "t": "t",
@@ -28259,49 +28478,29 @@
                       1
                     ],
                     "o": "start",
-                    "l": 19,
-                    "c": "structure contracts"
+                    "l": -19
                   },
                   {
                     "t": "e"
                   }
                 ],
-                "l": ""
+                "l": "l"
               },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "3c5c702b-1a8a-8010-bee3-e9aa09fc856c": {
-      "id": "3c5c702b-1a8a-8010-bee3-e9aa09fc856c",
-      "version": 57,
-      "type": "bulleted_list",
-      "properties": {
-        "title": [
-          [
-            "manage the entire lead delivery, and integration process"
-          ]
-        ]
-      },
-      "created_time": 1787519989899,
-      "last_edited_time": 1787520092671,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "KhC25pCZogqZMf3kCY0aGw,\"start\",\"end\"",
-          "n": {
-            "KhC25pCZogqZMf3kCY0aGw,\"start\",\"end\"": {
+              "c": [
+                "KhC25pCZogqZMf3kCY0aGw,[\"du46fjSHEJ6t\",85],\"end\""
+              ]
+            },
+            "KhC25pCZogqZMf3kCY0aGw,[\"du46fjSHEJ6t\",85],\"end\"": {
               "s": {
                 "x": "KhC25pCZogqZMf3kCY0aGw",
                 "i": [
                   {
-                    "t": "s"
+                    "t": "p",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      85
+                    ],
+                    "o": "start"
                   },
                   {
                     "t": "t",
@@ -28310,8 +28509,7 @@
                       1
                     ],
                     "o": "start",
-                    "l": 31,
-                    "c": "manage the entire lead delivery"
+                    "l": -31
                   },
                   {
                     "t": "t",
@@ -28323,8 +28521,7 @@
                       "yG_dOJqVDLh_",
                       31
                     ],
-                    "l": 25,
-                    "c": ", and integration process"
+                    "l": -25
                   },
                   {
                     "t": "t",
@@ -28342,7 +28539,7 @@
                     "t": "e"
                   }
                 ],
-                "l": ""
+                "l": "l"
               },
               "c": []
             }
@@ -33091,6 +33288,138 @@
         }
       }
     },
+    "3c5c702b-1a8a-80ea-bf02-f90142ad1b3c": {
+      "id": "3c5c702b-1a8a-80ea-bf02-f90142ad1b3c",
+      "version": 59,
+      "type": "bulleted_list",
+      "properties": {
+        "title": [
+          [
+            "Objection handle",
+            [
+              [
+                "i"
+              ]
+            ]
+          ]
+        ]
+      },
+      "created_time": 1787521965327,
+      "last_edited_time": 1787521979338,
+      "parent_id": "3c5c702b-1a8a-8081-91e5-fb1ed18f930b",
+      "parent_table": "block",
+      "alive": true,
+      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
+      "crdt_format_version": 1,
+      "crdt_data": {
+        "title": {
+          "r": "Ss8R21Y2_ZJtwn1kK0pm-w,\"start\",\"end\"",
+          "n": {
+            "Ss8R21Y2_ZJtwn1kK0pm-w,\"start\",\"end\"": {
+              "s": {
+                "x": "Ss8R21Y2_ZJtwn1kK0pm-w",
+                "i": [
+                  {
+                    "t": "s"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "4ip6dEEnnpm8",
+                      1
+                    ],
+                    "o": "start",
+                    "l": 1,
+                    "c": "O",
+                    "b": [
+                      {
+                        "t": "a",
+                        "x": "Ss8R21Y2_ZJtwn1kK0pm-w",
+                        "l": "",
+                        "i": [
+                          "4ip6dEEnnpm8",
+                          2
+                        ],
+                        "s": {
+                          "i": [
+                            "4ip6dEEnnpm8",
+                            1
+                          ],
+                          "a": "b"
+                        },
+                        "e": {
+                          "i": "end",
+                          "a": "b"
+                        },
+                        "a": [
+                          "i"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "4ip6dEEnnpm8",
+                      3
+                    ],
+                    "o": [
+                      "4ip6dEEnnpm8",
+                      1
+                    ],
+                    "l": 5,
+                    "c": "bject"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "4ip6dEEnnpm8",
+                      13
+                    ],
+                    "o": [
+                      "4ip6dEEnnpm8",
+                      7
+                    ],
+                    "l": 10,
+                    "c": "ion handle"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "4ip6dEEnnpm8",
+                      9
+                    ],
+                    "o": [
+                      "4ip6dEEnnpm8",
+                      7
+                    ],
+                    "l": -4
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "4ip6dEEnnpm8",
+                      8
+                    ],
+                    "o": [
+                      "4ip6dEEnnpm8",
+                      7
+                    ],
+                    "l": -1
+                  },
+                  {
+                    "t": "e",
+                    "b": []
+                  }
+                ],
+                "l": ""
+              },
+              "c": []
+            }
+          }
+        }
+      }
+    },
     "3c5c702b-1a8a-8002-bc30-f4d0f72ef216": {
       "id": "3c5c702b-1a8a-8002-bc30-f4d0f72ef216",
       "version": 101,
@@ -36931,36 +37260,36 @@
         }
       }
     },
-    "3c5c702b-1a8a-80ea-bf02-f90142ad1b3c": {
-      "id": "3c5c702b-1a8a-80ea-bf02-f90142ad1b3c",
-      "version": 59,
+    "caa098aa-8545-48ad-a7ac-4a22ae297aae": {
+      "id": "caa098aa-8545-48ad-a7ac-4a22ae297aae",
+      "version": 7,
       "type": "bulleted_list",
       "properties": {
         "title": [
           [
-            "Objection handle",
-            [
-              [
-                "i"
-              ]
-            ]
+            "Brief the team on the prospect's context: \"Give them a rundown of the discussion we had — what you're thinking of starting with first, and how you're looking to roll it out\" (Harj)."
           ]
         ]
       },
-      "created_time": 1787521965327,
-      "last_edited_time": 1787521979338,
-      "parent_id": "3c5c702b-1a8a-8081-91e5-fb1ed18f930b",
+      "format": {
+        "metadata": {
+          "ai_run_id": "d38fa6ce-c3a6-4821-a3b7-03f7ca3f11b0"
+        }
+      },
+      "created_time": 1786477683115,
+      "last_edited_time": 1786477683355,
+      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
       "parent_table": "block",
       "alive": true,
       "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
       "crdt_format_version": 1,
       "crdt_data": {
         "title": {
-          "r": "Ss8R21Y2_ZJtwn1kK0pm-w,\"start\",\"end\"",
+          "r": "0UO7yZzUPzPvBUY0o2zqUw,\"start\",\"end\"",
           "n": {
-            "Ss8R21Y2_ZJtwn1kK0pm-w,\"start\",\"end\"": {
+            "0UO7yZzUPzPvBUY0o2zqUw,\"start\",\"end\"": {
               "s": {
-                "x": "Ss8R21Y2_ZJtwn1kK0pm-w",
+                "x": "0UO7yZzUPzPvBUY0o2zqUw",
                 "i": [
                   {
                     "t": "s"
@@ -36968,34 +37297,101 @@
                   {
                     "t": "t",
                     "i": [
-                      "4ip6dEEnnpm8",
+                      "kOW8qLFsQ9Gf",
                       1
                     ],
                     "o": "start",
-                    "l": 1,
-                    "c": "O",
+                    "l": 181,
+                    "c": "Brief the team on the prospect's context: \"Give them a rundown of the discussion we had — what you're thinking of starting with first, and how you're looking to roll it out\" (Harj)."
+                  },
+                  {
+                    "t": "e"
+                  }
+                ],
+                "l": ""
+              },
+              "c": []
+            }
+          }
+        }
+      }
+    },
+    "c27756be-f93f-4b36-bc4b-b816202e478a": {
+      "id": "c27756be-f93f-4b36-bc4b-b816202e478a",
+      "version": 7,
+      "type": "text",
+      "properties": {
+        "title": [
+          [
+            "Final tie-down (adapted from reference script):",
+            [
+              [
+                "b"
+              ]
+            ]
+          ],
+          [
+            " \"With that — do you think there's any way you wouldn't get the support you need to apply this effectively?\""
+          ]
+        ]
+      },
+      "format": {
+        "metadata": {
+          "ai_run_id": "d38fa6ce-c3a6-4821-a3b7-03f7ca3f11b0"
+        }
+      },
+      "created_time": 1786477683115,
+      "last_edited_time": 1786477683355,
+      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
+      "parent_table": "block",
+      "alive": true,
+      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
+      "crdt_format_version": 1,
+      "crdt_data": {
+        "title": {
+          "r": "GVAC3-9bG9-x1w9gPJSaCQ,\"start\",\"end\"",
+          "n": {
+            "GVAC3-9bG9-x1w9gPJSaCQ,\"start\",\"end\"": {
+              "s": {
+                "x": "GVAC3-9bG9-x1w9gPJSaCQ",
+                "i": [
+                  {
+                    "t": "s"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "hupnDdVB6fKA",
+                      1
+                    ],
+                    "o": "start",
+                    "l": 47,
+                    "c": "Final tie-down (adapted from reference script):",
                     "b": [
                       {
                         "t": "a",
-                        "x": "Ss8R21Y2_ZJtwn1kK0pm-w",
+                        "x": "GVAC3-9bG9-x1w9gPJSaCQ",
                         "l": "",
                         "i": [
-                          "4ip6dEEnnpm8",
-                          2
+                          "hupnDdVB6fKA",
+                          156
                         ],
                         "s": {
                           "i": [
-                            "4ip6dEEnnpm8",
+                            "hupnDdVB6fKA",
                             1
                           ],
                           "a": "b"
                         },
                         "e": {
-                          "i": "end",
+                          "i": [
+                            "hupnDdVB6fKA",
+                            48
+                          ],
                           "a": "b"
                         },
                         "a": [
-                          "i"
+                          "b"
                         ]
                       }
                     ]
@@ -37003,56 +37399,19 @@
                   {
                     "t": "t",
                     "i": [
-                      "4ip6dEEnnpm8",
-                      3
+                      "hupnDdVB6fKA",
+                      48
                     ],
                     "o": [
-                      "4ip6dEEnnpm8",
-                      1
+                      "hupnDdVB6fKA",
+                      47
                     ],
-                    "l": 5,
-                    "c": "bject"
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "4ip6dEEnnpm8",
-                      13
-                    ],
-                    "o": [
-                      "4ip6dEEnnpm8",
-                      7
-                    ],
-                    "l": 10,
-                    "c": "ion handle"
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "4ip6dEEnnpm8",
-                      9
-                    ],
-                    "o": [
-                      "4ip6dEEnnpm8",
-                      7
-                    ],
-                    "l": -4
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "4ip6dEEnnpm8",
-                      8
-                    ],
-                    "o": [
-                      "4ip6dEEnnpm8",
-                      7
-                    ],
-                    "l": -1
-                  },
-                  {
-                    "t": "e",
+                    "l": 108,
+                    "c": " \"With that — do you think there's any way you wouldn't get the support you need to apply this effectively?\"",
                     "b": []
+                  },
+                  {
+                    "t": "e"
                   }
                 ],
                 "l": ""
@@ -37558,168 +37917,6 @@
                   }
                 ],
                 "l": "l"
-              },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "caa098aa-8545-48ad-a7ac-4a22ae297aae": {
-      "id": "caa098aa-8545-48ad-a7ac-4a22ae297aae",
-      "version": 7,
-      "type": "bulleted_list",
-      "properties": {
-        "title": [
-          [
-            "Brief the team on the prospect's context: \"Give them a rundown of the discussion we had — what you're thinking of starting with first, and how you're looking to roll it out\" (Harj)."
-          ]
-        ]
-      },
-      "format": {
-        "metadata": {
-          "ai_run_id": "d38fa6ce-c3a6-4821-a3b7-03f7ca3f11b0"
-        }
-      },
-      "created_time": 1786477683115,
-      "last_edited_time": 1786477683355,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "0UO7yZzUPzPvBUY0o2zqUw,\"start\",\"end\"",
-          "n": {
-            "0UO7yZzUPzPvBUY0o2zqUw,\"start\",\"end\"": {
-              "s": {
-                "x": "0UO7yZzUPzPvBUY0o2zqUw",
-                "i": [
-                  {
-                    "t": "s"
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "kOW8qLFsQ9Gf",
-                      1
-                    ],
-                    "o": "start",
-                    "l": 181,
-                    "c": "Brief the team on the prospect's context: \"Give them a rundown of the discussion we had — what you're thinking of starting with first, and how you're looking to roll it out\" (Harj)."
-                  },
-                  {
-                    "t": "e"
-                  }
-                ],
-                "l": ""
-              },
-              "c": []
-            }
-          }
-        }
-      }
-    },
-    "c27756be-f93f-4b36-bc4b-b816202e478a": {
-      "id": "c27756be-f93f-4b36-bc4b-b816202e478a",
-      "version": 7,
-      "type": "text",
-      "properties": {
-        "title": [
-          [
-            "Final tie-down (adapted from reference script):",
-            [
-              [
-                "b"
-              ]
-            ]
-          ],
-          [
-            " \"With that — do you think there's any way you wouldn't get the support you need to apply this effectively?\""
-          ]
-        ]
-      },
-      "format": {
-        "metadata": {
-          "ai_run_id": "d38fa6ce-c3a6-4821-a3b7-03f7ca3f11b0"
-        }
-      },
-      "created_time": 1786477683115,
-      "last_edited_time": 1786477683355,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "GVAC3-9bG9-x1w9gPJSaCQ,\"start\",\"end\"",
-          "n": {
-            "GVAC3-9bG9-x1w9gPJSaCQ,\"start\",\"end\"": {
-              "s": {
-                "x": "GVAC3-9bG9-x1w9gPJSaCQ",
-                "i": [
-                  {
-                    "t": "s"
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "hupnDdVB6fKA",
-                      1
-                    ],
-                    "o": "start",
-                    "l": 47,
-                    "c": "Final tie-down (adapted from reference script):",
-                    "b": [
-                      {
-                        "t": "a",
-                        "x": "GVAC3-9bG9-x1w9gPJSaCQ",
-                        "l": "",
-                        "i": [
-                          "hupnDdVB6fKA",
-                          156
-                        ],
-                        "s": {
-                          "i": [
-                            "hupnDdVB6fKA",
-                            1
-                          ],
-                          "a": "b"
-                        },
-                        "e": {
-                          "i": [
-                            "hupnDdVB6fKA",
-                            48
-                          ],
-                          "a": "b"
-                        },
-                        "a": [
-                          "b"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "hupnDdVB6fKA",
-                      48
-                    ],
-                    "o": [
-                      "hupnDdVB6fKA",
-                      47
-                    ],
-                    "l": 108,
-                    "c": " \"With that — do you think there's any way you wouldn't get the support you need to apply this effectively?\"",
-                    "b": []
-                  },
-                  {
-                    "t": "e"
-                  }
-                ],
-                "l": ""
               },
               "c": []
             }
