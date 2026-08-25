@@ -150,18 +150,19 @@ for depth, t, b in flat[start:end]:
 close_lists()
 body_html = '\n'.join(body)
 
-# Section 9 repeats section 8's opening line word for word. Left in place, but
-# flagged so nobody asks it twice on a live call.
+# Section 9 used to repeat section 8's opening line word for word. Tommy removed it
+# from the source on 2026-08-25. If it ever comes back, flag it on the page rather
+# than dropping it, so nobody asks the same question twice on a live call.
 dup = 'Ok, well that’s everything in terms of how it works. What questions do you have specifically in relation to the process?'
 h9 = [t for t in toc if t[0] == 'l1' and t[2].startswith('9.')][0]
 anchor = '<h2 id="%s">%s</h2>\n<p>%s</p>' % (h9[1], esc(h9[2]), dup)
-note = ('<h2 id="%s">%s</h2>\n'
+if anchor in body_html:
+    body_html = body_html.replace(anchor, (
+        '<h2 id="%s">%s</h2>\n'
         '<p class="ctx-block">Build note: the source repeats section 8’s opening line here '
         'verbatim. Shown below as written — don’t ask it twice.</p>\n'
-        '<p>%s</p>') % (h9[1], esc(h9[2]), dup)
-if anchor not in body_html:
-    sys.exit('section 9 duplicate-line anchor not found — check the source before shipping')
-body_html = body_html.replace(anchor, note)
+        '<p>%s</p>') % (h9[1], esc(h9[2]), dup))
+    print('note: section 9 still duplicates section 8’s opener — flagged on the page')
 
 nav = '\n'.join(
     '    <a class="toc-%s" href="#%s">%s</a>' % (lvl, sid, html.escape(label))
