@@ -3,7 +3,7 @@
   "blocks": {
     "0dae5998-6672-4a27-9c93-a9026201443a": {
       "id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "version": 834,
+      "version": 835,
       "type": "page",
       "properties": {
         "title": [
@@ -152,7 +152,7 @@
         }
       ],
       "created_time": 1786477682588,
-      "last_edited_time": 1787680260049,
+      "last_edited_time": 1787680485824,
       "parent_id": "29865086-909a-4496-af6c-ec11f45323d3",
       "parent_table": "block",
       "alive": true,
@@ -17574,17 +17574,17 @@
     },
     "3c5c702b-1a8a-80c6-9d6b-d172284afa41": {
       "id": "3c5c702b-1a8a-80c6-9d6b-d172284afa41",
-      "version": 57,
+      "version": 67,
       "type": "bulleted_list",
       "properties": {
         "title": [
           [
-            "having generating hundreds of thousands of leads with our own lead gen business"
+            "having generated hundreds of thousands of leads with our own lead gen business"
           ]
         ]
       },
       "created_time": 1787498757102,
-      "last_edited_time": 1787602584256,
+      "last_edited_time": 1787680486295,
       "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
       "parent_table": "block",
       "alive": true,
@@ -17669,8 +17669,46 @@
                       "9n3Cg_G692hZ",
                       37
                     ],
-                    "l": 55,
-                    "c": "generating hundreds of thousands of leads with our own "
+                    "l": 7,
+                    "c": "generat"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "du46fjSHEJ6t",
+                      118
+                    ],
+                    "o": [
+                      "9n3Cg_G692hZ",
+                      44
+                    ],
+                    "l": 2,
+                    "c": "ed"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "9n3Cg_G692hZ",
+                      45
+                    ],
+                    "o": [
+                      "9n3Cg_G692hZ",
+                      44
+                    ],
+                    "l": -3
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "9n3Cg_G692hZ",
+                      48
+                    ],
+                    "o": [
+                      "9n3Cg_G692hZ",
+                      47
+                    ],
+                    "l": 45,
+                    "c": " hundreds of thousands of leads with our own "
                   },
                   {
                     "t": "t",
@@ -28571,79 +28609,6 @@
         }
       }
     },
-    "3c5c702b-1a8a-809d-8e6c-ce10115064a4": {
-      "id": "3c5c702b-1a8a-809d-8e6c-ce10115064a4",
-      "version": 63,
-      "type": "text",
-      "properties": {
-        "title": [
-          [
-            "And so at this point, once you've solved lead generation as a bottleneck within your business, it's up to you to choose whether you want to:"
-          ]
-        ]
-      },
-      "created_time": 1787519989899,
-      "last_edited_time": 1787520109335,
-      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
-      "parent_table": "block",
-      "alive": true,
-      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
-      "crdt_format_version": 1,
-      "crdt_data": {
-        "title": {
-          "r": "GwTg1VnK2BbxWRekLTjYLw,\"start\",\"end\"",
-          "n": {
-            "GwTg1VnK2BbxWRekLTjYLw,\"start\",\"end\"": {
-              "s": {
-                "x": "GwTg1VnK2BbxWRekLTjYLw",
-                "i": [
-                  {
-                    "t": "s"
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "4ip6dEEnnpm8",
-                      129
-                    ],
-                    "o": "start",
-                    "l": 21,
-                    "c": "And so at this point,"
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "knF2hepUbesa",
-                      1
-                    ],
-                    "o": "start",
-                    "l": -9
-                  },
-                  {
-                    "t": "t",
-                    "i": [
-                      "knF2hepUbesa",
-                      10
-                    ],
-                    "o": [
-                      "knF2hepUbesa",
-                      9
-                    ],
-                    "l": 119,
-                    "c": " once you've solved lead generation as a bottleneck within your business, it's up to you to choose whether you want to:"
-                  },
-                  {
-                    "t": "e"
-                  }
-                ],
-                "l": ""
-              },
-              "c": []
-            }
-          }
-        }
-      }
-    },
     "3c7c702b-1a8a-800c-b188-dfd58b8c96ab": {
       "id": "3c7c702b-1a8a-800c-b188-dfd58b8c96ab",
       "version": 203,
@@ -28908,6 +28873,79 @@
                   {
                     "t": "e",
                     "b": []
+                  }
+                ],
+                "l": ""
+              },
+              "c": []
+            }
+          }
+        }
+      }
+    },
+    "3c5c702b-1a8a-809d-8e6c-ce10115064a4": {
+      "id": "3c5c702b-1a8a-809d-8e6c-ce10115064a4",
+      "version": 63,
+      "type": "text",
+      "properties": {
+        "title": [
+          [
+            "And so at this point, once you've solved lead generation as a bottleneck within your business, it's up to you to choose whether you want to:"
+          ]
+        ]
+      },
+      "created_time": 1787519989899,
+      "last_edited_time": 1787520109335,
+      "parent_id": "0dae5998-6672-4a27-9c93-a9026201443a",
+      "parent_table": "block",
+      "alive": true,
+      "space_id": "a9cc702b-1a8a-81c7-baba-00038ba948e6",
+      "crdt_format_version": 1,
+      "crdt_data": {
+        "title": {
+          "r": "GwTg1VnK2BbxWRekLTjYLw,\"start\",\"end\"",
+          "n": {
+            "GwTg1VnK2BbxWRekLTjYLw,\"start\",\"end\"": {
+              "s": {
+                "x": "GwTg1VnK2BbxWRekLTjYLw",
+                "i": [
+                  {
+                    "t": "s"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "4ip6dEEnnpm8",
+                      129
+                    ],
+                    "o": "start",
+                    "l": 21,
+                    "c": "And so at this point,"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "knF2hepUbesa",
+                      1
+                    ],
+                    "o": "start",
+                    "l": -9
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "knF2hepUbesa",
+                      10
+                    ],
+                    "o": [
+                      "knF2hepUbesa",
+                      9
+                    ],
+                    "l": 119,
+                    "c": " once you've solved lead generation as a bottleneck within your business, it's up to you to choose whether you want to:"
+                  },
+                  {
+                    "t": "e"
                   }
                 ],
                 "l": ""
