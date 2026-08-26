@@ -121,8 +121,7 @@ notes = {k: re.sub(r'\s*:\s*$', '', v).strip() for k, v in notes.items()}
 
 DATA = {
     'questions': QUESTIONS,
-    'sequence': [{'match': r['match'], 'steps': [list(s) for s in r['steps']]}
-                 for r in SEQUENCE],
+    'sequence': SEQUENCE,
     'messages': messages,
     'notes': notes,
     'needsNiche': NEEDS_NICHE,
@@ -214,27 +213,6 @@ if stack:
     crm_html.append('</%s>' % stack)
 crm_html = ''.join(crm_html)
 
-# Message Components reference
-comp_hdr_id, _ = find_header('Message Components', ('header',))
-ci = page_children.index(comp_hdr_id)
-comp_html = []
-for cid in page_children[ci + 1:]:
-    c = B.get(cid)
-    if not c:
-        continue
-    t = c.get('type')
-    if t == 'sub_header':
-        comp_html.append('<h3 id="cmp-%s">%s</h3>' % (
-            re.sub(r'[^a-z0-9]+', '-', plain(c).lower()).strip('-'), inline(c)))
-    elif t == 'quote':
-        lines = ''.join('<p>%s</p>' % ''.join(
-            ('<strong>%s</strong>' % esc(s['t'])) if s.get('b') else esc(s['t']) for s in l)
-            for l in split_lines(c))
-        comp_html.append('<div class="msg static">%s%s</div>' % (lines, render_children(cid)))
-    elif plain(c).strip():
-        comp_html.append('<p class="ctx-block">%s</p>' % inline(c))
-comp_html = ''.join(comp_html)
-
 # ---------------------------------------------------------------------------
 # Page
 # ---------------------------------------------------------------------------
@@ -242,7 +220,6 @@ tpl = open(os.path.join(ROOT_DIR, 'tools', 'precall-template.html')).read()
 page = (tpl
         .replace('{{PURPOSE}}', purpose_html)
         .replace('{{CRM}}', crm_html)
-        .replace('{{COMPONENTS}}', comp_html)
         .replace('{{DATA}}', json.dumps(DATA, ensure_ascii=False, separators=(',', ':'))))
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)

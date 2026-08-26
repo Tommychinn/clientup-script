@@ -68,6 +68,10 @@ NOTES = {
 # ---------------------------------------------------------------------------
 # Questions the rep answers, in order. `when` gates a question on earlier
 # answers; a question only appears once everything it depends on is answered.
+#
+# There is deliberately no question for the ecom / PPL-niche split. The source
+# offers those as two example openings for the rep to choose between, not as a
+# branch in the conversation, so both are shown inside the same step.
 # ---------------------------------------------------------------------------
 QUESTIONS = [
     {'id': 'segment', 'label': 'Prospect segment', 'options': [
@@ -113,21 +117,11 @@ QUESTIONS = [
         {'v': 'agency',   'l': "Agency's business email"},
         {'v': 'personal', 'l': 'Personal email'},
     ]},
-    {'id': 'mktAngle', 'label': 'Opening angle',
-     'when': {'segment': ['marketer'], 'mktBooked': ['agency']}, 'options': [
-        {'v': 'ecom',  'l': 'Ecom agency'},
-        {'v': 'niche', 'l': 'Niche that already does PPL'},
-    ]},
     {'id': 'mktReply', 'label': 'How they reply',
      'when': {'segment': ['marketer'], 'mktBooked': ['personal']}, 'options': [
         {'v': 'employed',  'l': "At someone else's company"},
         {'v': 'freelance', 'l': 'Own clients, no website'},
         {'v': 'website',   'l': 'They shared a website'},
-    ]},
-    {'id': 'mktWebAngle', 'label': 'What their site shows',
-     'when': {'segment': ['marketer'], 'mktReply': ['website']}, 'options': [
-        {'v': 'ecom',  'l': 'Ecom'},
-        {'v': 'niche', 'l': 'Niche that typically runs PPL'},
     ]},
 
     {'id': 'n5Know', 'label': 'How well they know the model',
@@ -138,57 +132,82 @@ QUESTIONS = [
 ]
 
 # ---------------------------------------------------------------------------
-# Sequence rules. First matching rule wins per group; matched rules concatenate
-# in list order, so the opening rule and the intent rule compose into one flow.
+# Sequence rules. Every rule whose `match` is satisfied contributes its steps,
+# in list order, so the flow grows message by message as the rep answers.
+#
+# Each rule is gated on the FEWEST answers that actually determine its message.
+# The opening message for a business owner on a personal email is the same
+# whether or not they have a website, so it must appear the moment those two
+# are chosen — not wait for a third answer it doesn't depend on.
+#
+# A step is either one message, or a set of variants the rep picks between.
 # ---------------------------------------------------------------------------
+def step(note, msg):
+    return {'note': note, 'msg': msg}
+
+
+def choice(note, *variants):
+    return {'note': note, 'variants': [{'label': l, 'msg': m} for l, m in variants]}
+
+
 SEQUENCE = [
-    # --- business owner: the opening exchange ---
+    # --- business owner: opening ---
     {'match': {'segment': ['owner'], 'ownerBooked': ['business']},
-     'steps': [('OPEN_CHECK_SITE', 'OWNER_BIZ_OPEN')]},
+     'steps': [step('OPEN_CHECK_SITE', 'OWNER_BIZ_OPEN')]},
+    {'match': {'segment': ['owner'], 'ownerBooked': ['personal']},
+     'steps': [step('OPEN', 'OWNER_PERS_OPEN')]},
     {'match': {'segment': ['owner'], 'ownerBooked': ['personal'], 'ownerWebsite': ['no']},
-     'steps': [('OPEN', 'OWNER_PERS_OPEN'), ('IF_NO_WEBSITE', 'OWNER_PERS_NOWEB')]},
+     'steps': [step('IF_NO_WEBSITE', 'OWNER_PERS_NOWEB')]},
     {'match': {'segment': ['owner'], 'ownerBooked': ['personal'], 'ownerWebsite': ['yes']},
-     'steps': [('OPEN', 'OWNER_PERS_OPEN'), ('IF_YES_WEBSITE', 'OWNER_PERS_WEB')]},
+     'steps': [step('IF_YES_WEBSITE', 'OWNER_PERS_WEB')]},
 
     # --- business owner: intent branches ---
+    {'match': {'segment': ['owner'], 'ownerIntent': ['ppl', 'both']},
+     'steps': [step('SEND_Q1', 'Q1')]},
+    {'match': {'segment': ['owner'], 'ownerIntent': ['internal']},
+     'steps': [step('SEND_Q2', 'Q2')]},
     {'match': {'segment': ['owner'], 'ownerIntent': ['ppl'], 'ownerPplKnow': ['knows']},
-     'steps': [('SEND_Q1', 'Q1'), ('KNOWS_R1', 'R1')]},
+     'steps': [step('KNOWS_R1', 'R1')]},
     {'match': {'segment': ['owner'], 'ownerIntent': ['ppl'], 'ownerPplKnow': ['early']},
-     'steps': [('SEND_Q1', 'Q1'), ('EARLY_R2', 'R2')]},
+     'steps': [step('EARLY_R2', 'R2')]},
     {'match': {'segment': ['owner'], 'ownerIntent': ['internal'], 'ownerInternal': ['already']},
-     'steps': [('SEND_Q2', 'Q2'), ('RUNNING_R3', 'R3')]},
+     'steps': [step('RUNNING_R3', 'R3')]},
     {'match': {'segment': ['owner'], 'ownerIntent': ['internal'], 'ownerInternal': ['starting']},
-     'steps': [('SEND_Q2', 'Q2'), ('STARTING_R4', 'R4')]},
+     'steps': [step('STARTING_R4', 'R4')]},
     {'match': {'segment': ['owner'], 'ownerIntent': ['both'], 'ownerBothKnow': ['knows']},
-     'steps': [('SEND_Q1', 'Q1'), ('KNOWS_R6', 'R6')]},
+     'steps': [step('KNOWS_R6', 'R6')]},
     {'match': {'segment': ['owner'], 'ownerIntent': ['both'], 'ownerBothKnow': ['early']},
-     'steps': [('SEND_Q1', 'Q1'), ('STARTING_R7', 'R7')]},
+     'steps': [step('STARTING_R7', 'R7')]},
 
     # --- marketer / agency ---
-    {'match': {'segment': ['marketer'], 'mktBooked': ['agency'], 'mktAngle': ['ecom']},
-     'steps': [('MKT_ECOM_LABEL', 'MKT_AGENCY_ECOM'), ('AFTER_REPLY_R5', 'R5')]},
-    {'match': {'segment': ['marketer'], 'mktBooked': ['agency'], 'mktAngle': ['niche']},
-     'steps': [('MKT_NICHE_LABEL', 'MKT_AGENCY_NICHE'), ('AFTER_REPLY_R5', 'R5')]},
+    {'match': {'segment': ['marketer'], 'mktBooked': ['agency']},
+     'steps': [choice('MKT_OPEN_EXAMPLES',
+                      ('MKT_ECOM_LABEL', 'MKT_AGENCY_ECOM'),
+                      ('MKT_NICHE_LABEL', 'MKT_AGENCY_NICHE')),
+               step('AFTER_REPLY_R5', 'R5')]},
+    {'match': {'segment': ['marketer'], 'mktBooked': ['personal']},
+     'steps': [step('OPEN', 'MKT_PERS_OPEN')]},
     {'match': {'segment': ['marketer'], 'mktBooked': ['personal'], 'mktReply': ['employed']},
-     'steps': [('OPEN', 'MKT_PERS_OPEN'), ('MKT_EMPLOYED_IF', 'MKT_EMPLOYED'),
-               ('MKT_FOLLOWUP_Q1', 'Q1'), ('AFTER_REPLY_R5', 'R5')]},
+     'steps': [step('MKT_EMPLOYED_IF', 'MKT_EMPLOYED'),
+               step('MKT_FOLLOWUP_Q1', 'Q1'),
+               step('AFTER_REPLY_R5', 'R5')]},
     {'match': {'segment': ['marketer'], 'mktBooked': ['personal'], 'mktReply': ['freelance']},
-     'steps': [('OPEN', 'MKT_PERS_OPEN'), ('MKT_FREELANCE_IF', 'MKT_FREELANCE'),
-               ('MKT_FOLLOWUP_Q1', 'Q1'), ('AFTER_REPLY_R5', 'R5')]},
-    {'match': {'segment': ['marketer'], 'mktBooked': ['personal'], 'mktReply': ['website'],
-               'mktWebAngle': ['ecom']},
-     'steps': [('OPEN', 'MKT_PERS_OPEN'), ('MKT_WEB_ECOM_LBL', 'MKT_WEB_ECOM'),
-               ('AFTER_REPLY_R5', 'R5')]},
-    {'match': {'segment': ['marketer'], 'mktBooked': ['personal'], 'mktReply': ['website'],
-               'mktWebAngle': ['niche']},
-     'steps': [('OPEN', 'MKT_PERS_OPEN'), ('MKT_WEB_NICHE_LBL', 'MKT_WEB_NICHE'),
-               ('AFTER_REPLY_R5', 'R5')]},
+     'steps': [step('MKT_FREELANCE_IF', 'MKT_FREELANCE'),
+               step('MKT_FOLLOWUP_Q1', 'Q1'),
+               step('AFTER_REPLY_R5', 'R5')]},
+    {'match': {'segment': ['marketer'], 'mktBooked': ['personal'], 'mktReply': ['website']},
+     'steps': [choice('MKT_IF_YES_SITE',
+                      ('MKT_WEB_ECOM_LBL', 'MKT_WEB_ECOM'),
+                      ('MKT_WEB_NICHE_LBL', 'MKT_WEB_NICHE')),
+               step('AFTER_REPLY_R5', 'R5')]},
 
-    # --- nine-to-fiver ---
+    # --- nine-to-fiver: no branch before the first two messages ---
+    {'match': {'segment': ['nine5']},
+     'steps': [step('OPEN', 'N5_OPEN'), step('N5_STILL_LOOKING', 'Q1')]},
     {'match': {'segment': ['nine5'], 'n5Know': ['knows']},
-     'steps': [('OPEN', 'N5_OPEN'), ('N5_STILL_LOOKING', 'Q1'), ('KNOWS_R1', 'R1')]},
+     'steps': [step('KNOWS_R1', 'R1')]},
     {'match': {'segment': ['nine5'], 'n5Know': ['early']},
-     'steps': [('OPEN', 'N5_OPEN'), ('N5_STILL_LOOKING', 'Q1'), ('EARLY_R2', 'R2')]},
+     'steps': [step('EARLY_R2', 'R2')]},
 ]
 
 # Messages that mention the prospect's niche, so the niche input only appears

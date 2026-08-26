@@ -58,5 +58,20 @@ inputs at the top of the page and resolved into both the on-screen text and the
 copied text. Anything left blank stays in its bracketed form so a half-filled
 message is obviously half-filled.
 
+**Each sequence rule is gated on the fewest answers that actually determine its
+message.** A business owner's opening message is the same whether or not they
+have a website, so its rule doesn't mention the website question — it appears the
+moment segment and email type are chosen. Getting this wrong doesn't break the
+build, it just makes the rep answer questions before seeing a message they could
+already have sent, so keep rules minimal when you add a branch.
+
+The ecom / PPL-niche split is deliberately not a question. The source offers those
+as two example openings to choose between, not as a fork in the conversation, so
+both render inside one step as variants.
+
+The page shows only what a rep uses mid-conversation: the purpose, the CRM check,
+then the flow. The Message Components reference is not rendered — Notion is where
+you read and edit those.
+
 To change the flow — a new segment, a new branch — edit `precall_model.py`. To
 change what a message says, edit Notion.
