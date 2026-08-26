@@ -73,5 +73,12 @@ The page shows only what a rep uses mid-conversation: the purpose, the CRM check
 then the flow. The Message Components reference is not rendered — Notion is where
 you read and edit those.
 
+**A message that appears twice in Notion must match in both places.** Each one is
+written once inside the flow and once under Message Components. The build
+compares the whole message, resource list included, not just the opening line. If
+the two disagree it uses the Message Components definition — the doc calls that
+the canonical one — and prints a warning naming the difference. Reconcile it in
+Notion rather than leaving the warning standing.
+
 To change the flow — a new segment, a new branch — edit `precall_model.py`. To
 change what a message says, edit Notion.

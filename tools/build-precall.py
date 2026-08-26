@@ -51,20 +51,64 @@ def norm(s):
     return re.sub(r'\s+', ' ', s).strip().lower()
 
 
+# Document order, so a block can be placed relative to the Message Components
+# header — everything before it is the flow a rep actually reads.
+DOC_ORDER = []
+def _walk(bid):
+    if bid not in B:
+        return
+    DOC_ORDER.append(bid)
+    for c in B[bid].get('content') or []:
+        _walk(c)
+_walk(ROOT)
+POS = {bid: i for i, bid in enumerate(DOC_ORDER)}
+ID_OF = {id(b): bid for bid, b in B.items()}
+
+
+def whole(b):
+    """A block plus its children, as text — the whole message, not just line one."""
+    parts = [marked(b)]
+    bid = ID_OF.get(id(b))
+    for cid in (B.get(bid, {}).get('content') or []):
+        c = B.get(cid)
+        if c:
+            parts.append(marked(c))
+    return norm(' | '.join(parts))
+
+
+DRIFT = []
+
+
 def find_block(lead, types):
-    """The single block of one of `types` whose text starts with `lead`."""
+    """The block of one of `types` whose text starts with `lead`.
+
+    A message is repeated in the source: once inside the flow, once under
+    Message Components. Comparing only the opening line would let the two drift
+    apart unnoticed, so the whole message including its resource list is
+    compared.
+
+    When they disagree the Message Components copy wins. The source doc names it
+    the canonical definition — "change it there first, then update it everywhere
+    it appears in the flows" — so a components copy that differs is the newer
+    edit, and the flow copy is what hasn't caught up. The mismatch is still
+    reported at the end of the build so it gets reconciled.
+    """
     want = norm(lead)
     hits = [b for b in B.values()
             if b.get('type') in types and norm(marked(b)).startswith(want)]
+    if not hits:
+        sys.exit('lookup failed for %r — no block starts with that text' % lead)
     if len(hits) == 1:
         return hits[0]
-    # Quotes repeat verbatim across branches in the source (R5 appears three
-    # times). Identical duplicates are fine — differing ones are not.
-    if hits and len({norm(marked(h)) for h in hits}) == 1:
+
+    variants = {whole(h) for h in hits}
+    if len(variants) == 1:
         return hits[0]
-    sys.exit('lookup failed for %r — matched %d blocks%s' % (
-        lead, len(hits),
-        '' if not hits else ':\n  ' + '\n  '.join(norm(marked(h))[:90] for h in hits)))
+
+    # Latest in document order is the Message Components definition.
+    hits.sort(key=lambda h: POS.get(ID_OF.get(id(h)), 1 << 30), reverse=True)
+    DRIFT.append((lead, [whole(h) for h in hits]))
+    return hits[0]
 
 
 # ---------------------------------------------------------------------------
@@ -226,3 +270,18 @@ os.makedirs(os.path.dirname(OUT), exist_ok=True)
 open(OUT, 'w').write(page)
 print('wrote %s — %d messages, %d notes, %d questions, %d sequence rules' % (
     OUT, len(messages), len(notes), len(QUESTIONS), len(SEQUENCE)))
+
+if DRIFT:
+    print('\nWARNING — the two copies of these messages in Notion disagree.')
+    print('Used the Message Components definition, which the doc calls canonical.')
+    print('Reconcile them in Notion so the flow matches.')
+    for lead, variants in DRIFT:
+        print('\n  %s...' % lead[:70])
+        parts = [v.split(' | ') for v in variants]
+        width = max(len(x) for x in parts)
+        for i in range(width):
+            vals = [(x[i] if i < len(x) else '') for x in parts]
+            if len(set(vals)) == 1:
+                continue
+            for j, v in enumerate(vals):
+                print('    [%s] %s' % ('USED (components)' if j == 0 else 'stale (in flow)  ', v[:150]))

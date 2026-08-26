@@ -95,7 +95,7 @@ QUESTIONS = [
      ], 'options': [
         {'v': 'ppl',      'l': 'Pay-per-lead business'},
         {'v': 'internal', 'l': 'Leads for their own business'},
-        {'v': 'both',     'l': 'Both'},
+        {'v': 'both',     'l': 'Both / not sure'},
     ]},
     {'id': 'ownerPplKnow', 'label': 'How well they know PPL',
      'when': {'segment': ['owner'], 'ownerIntent': ['ppl']}, 'options': [

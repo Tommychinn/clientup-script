@@ -3,7 +3,7 @@
   "blocks": {
     "49e41065-36d9-421e-8011-94d045893637": {
       "id": "49e41065-36d9-421e-8011-94d045893637",
-      "version": 334,
+      "version": 336,
       "type": "page",
       "properties": {
         "title": [
@@ -68,7 +68,7 @@
         }
       ],
       "created_time": 1787754521868,
-      "last_edited_time": 1787780170212,
+      "last_edited_time": 1787782842500,
       "parent_id": "29865086-909a-4496-af6c-ec11f45323d3",
       "parent_table": "block",
       "alive": true,
@@ -42811,12 +42811,12 @@
     },
     "e29598f5-a9bf-426a-a5d6-8f33ca69ce8d": {
       "id": "e29598f5-a9bf-426a-a5d6-8f33ca69ce8d",
-      "version": 7,
+      "version": 13,
       "type": "numbered_list",
       "properties": {
         "title": [
           [
-            "How to Improve Lead Quality (Full Implementation Guide + Checklist)"
+            "How I Made $7,180,000 at 25 (No Product or Service)"
           ]
         ]
       },
@@ -42827,7 +42827,7 @@
         "list_format": "numbers"
       },
       "created_time": 1787780157225,
-      "last_edited_time": 1787780157610,
+      "last_edited_time": 1787781701907,
       "parent_id": "e82918ea-5aa7-46ac-a987-cea7a7a8fd2a",
       "parent_table": "block",
       "alive": true,
@@ -42847,12 +42847,30 @@
                   {
                     "t": "t",
                     "i": [
+                      "nIxq55UCODEU",
+                      107
+                    ],
+                    "o": "start",
+                    "l": 51,
+                    "c": "How I Made $7,180,000 at 25 (No Product or Service)"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "nIxq55UCODEU",
+                      68
+                    ],
+                    "o": "start",
+                    "l": -39
+                  },
+                  {
+                    "t": "t",
+                    "i": [
                       "Ivt0v2kzh7Ru",
                       1
                     ],
                     "o": "start",
-                    "l": 67,
-                    "c": "How to Improve Lead Quality (Full Implementation Guide + Checklist)"
+                    "l": -67
                   },
                   {
                     "t": "e"
@@ -43291,12 +43309,12 @@
     },
     "622b8560-d8cb-4c55-baeb-321953e69504": {
       "id": "622b8560-d8cb-4c55-baeb-321953e69504",
-      "version": 28,
+      "version": 70,
       "type": "toggle",
       "properties": {
         "title": [
           [
-            "Intent branch 3: they say BOTH"
+            "Intent branch 3: they say BOTH / Not Sure"
           ]
         ]
       },
@@ -43314,7 +43332,7 @@
         }
       },
       "created_time": 1787779256683,
-      "last_edited_time": 1787779971767,
+      "last_edited_time": 1787782847181,
       "parent_id": "3c8c702b-1a8a-8066-a2f2-c46962175305",
       "parent_table": "block",
       "alive": true,
@@ -43340,6 +43358,31 @@
                     "o": "start",
                     "l": 30,
                     "c": "Intent branch 3: they say BOTH"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "nIxq55UCODEU",
+                      51
+                    ],
+                    "o": [
+                      "9OBSQAGSJlSU",
+                      30
+                    ],
+                    "l": 11,
+                    "c": " / Not Sure"
+                  },
+                  {
+                    "t": "t",
+                    "i": [
+                      "nIxq55UCODEU",
+                      46
+                    ],
+                    "o": [
+                      "9OBSQAGSJlSU",
+                      30
+                    ],
+                    "l": -5
                   },
                   {
                     "t": "t",
