@@ -35,3 +35,28 @@ the script). To add the rest of the pitch, widen that range.
 - Section 9 repeats section 8's opening line word for word. It stays on the page
   with a blue build note so nobody asks it twice. The build fails loudly if that
   line stops matching, rather than silently dropping the note.
+
+## Pre-call engagement flow
+
+```bash
+node tools/fetch-notion.js 49e41065-36d9-421e-8011-94d045893637 tools/precall.json
+python3 tools/build-precall.py
+```
+
+That page is a picker, not a document: the rep answers a few questions about the
+prospect and gets the exact messages back in order with a copy button on each.
+
+`precall_model.py` holds the decision logic — the questions, which answers unlock
+which follow-up, and which messages each complete path produces. It contains **no
+message text**. Every message and every blue direction line is identified by its
+opening words and resolved against the Notion block tree at build time, so the
+words on the page are always the words in Notion. Reword a message in Notion and
+the lookup either finds it or fails the build; it can never ship stale copy.
+
+Placeholders (`[name]`, `[your name]`, `xyz.com`, `XYZ niche`) are filled from
+inputs at the top of the page and resolved into both the on-screen text and the
+copied text. Anything left blank stays in its bracketed form so a half-filled
+message is obviously half-filled.
+
+To change the flow — a new segment, a new branch — edit `precall_model.py`. To
+change what a message says, edit Notion.

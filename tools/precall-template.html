@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="ClientUp pre-call engagement flow — internal sales reference.">
+<title>Pre-Call Engagement Flow</title>
+<style>
+  :root{
+    --ink:#101114;           /* the message text itself */
+    --ctx:#2E7CC4;           /* backing context — don't send this */
+    --ctx-bg:#F2F7FC;
+    --rule:#E3E6EB;
+    --muted:#6B7280;
+    --ground:#FFFFFF;
+    --field:#FAFBFC;
+    --ok:#1B7F4B;
+    --measure:70ch;
+    --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  /* Single-theme by design, like the rest of the library: this is read off a
+     screen while messaging a prospect and must look identical everywhere. */
+  @media (prefers-color-scheme: dark){ :root{ --ground:#FFFFFF; --ink:#101114; } }
+  :root[data-theme="dark"],:root[data-theme="light"]{ --ground:#FFFFFF; --ink:#101114; }
+
+  html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+  body{
+    background:var(--ground); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.62;
+    margin:0; padding:0;
+  }
+  .wrap{ display:grid; grid-template-columns:minmax(0,1fr); }
+  @media (min-width:1040px){
+    .wrap{ grid-template-columns:264px minmax(0,1fr); align-items:start; }
+  }
+
+  /* ---- jump-to rail ---- */
+  nav{ border-bottom:1px solid var(--rule); padding:20px 24px; background:var(--ground); }
+  @media (min-width:1040px){
+    nav{
+      position:sticky; top:0; max-height:100vh; overflow-y:auto;
+      border-bottom:0; border-right:1px solid var(--rule); padding:40px 24px 40px 32px;
+    }
+  }
+  nav .navlabel{
+    font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 12px;
+  }
+  nav a{ display:block; text-decoration:none; color:var(--ink); padding:4px 0; line-height:1.35; }
+  nav a.toc-l1{ font-weight:700; font-size:14px; margin-top:12px; }
+  nav a.toc-l2{ font-weight:400; font-size:13.5px; color:#3F444C; padding-left:12px; }
+  nav a:hover{ color:var(--ctx); }
+  nav .home{ font-size:13px; color:var(--muted); margin:0 0 22px; }
+  nav .home a{ display:inline; color:var(--muted); }
+  nav .home a:hover{ color:var(--ctx); }
+  nav a:focus-visible,main a:focus-visible,button:focus-visible,input:focus-visible{
+    outline:2px solid var(--ctx); outline-offset:2px;
+  }
+
+  main{ padding:36px 24px 96px; max-width:var(--measure); }
+  @media (min-width:1040px){ main{ padding:56px 40px 120px; } }
+
+  h1{
+    font-size:clamp(28px,4.2vw,38px); line-height:1.14; font-weight:800;
+    letter-spacing:-.021em; text-wrap:balance; margin:0 0 14px;
+  }
+  h2,h3{ color:var(--ink); text-wrap:balance; }
+  h2{
+    font-size:25px; font-weight:800; letter-spacing:-.015em; line-height:1.22;
+    margin:52px 0 14px; padding-top:22px; border-top:2px solid var(--ink);
+  }
+  h3{ font-size:18px; font-weight:700; line-height:1.28; margin:32px 0 8px; }
+  p{ margin:0 0 13px; }
+  ul,ol{ margin:0 0 13px; padding-left:1.4em; }
+  li{ margin:0 0 6px; }
+  li::marker{ color:var(--muted); }
+
+  .callout{
+    background:var(--ctx-bg); border:1px solid #D6E4F2; border-left:3px solid var(--ctx);
+    border-radius:8px; padding:16px 18px; margin:0 0 26px; color:var(--ctx);
+  }
+  .callout p:last-child,.callout ul:last-child{ margin-bottom:0; }
+  .callout strong{ color:var(--ctx); }
+  .callout li::marker{ color:var(--ctx); }
+  .ctx-block{ color:var(--ctx); }
+  .ctx-block strong{ color:var(--ctx); }
+
+  /* ---- the picker ---- */
+  .picker{
+    position:sticky; top:0; z-index:5; background:var(--ground);
+    border-bottom:1px solid var(--rule); padding:14px 0 14px; margin:0 0 30px;
+  }
+  .qrow{ margin:0 0 11px; }
+  .qrow:last-of-type{ margin-bottom:0; }
+  .qlabel{
+    font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 7px;
+  }
+  .opts{ display:flex; flex-wrap:wrap; gap:7px; }
+  .opt{
+    font:inherit; font-size:13.5px; font-weight:600; line-height:1;
+    padding:8px 13px; border:1px solid var(--rule); border-radius:999px;
+    background:var(--ground); color:#3F444C; cursor:pointer;
+  }
+  .opt:hover{ border-color:var(--ctx); color:var(--ctx); }
+  .opt[aria-pressed="true"]{ background:var(--ink); border-color:var(--ink); color:#fff; }
+
+  .fields{ display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center; margin:13px 0 0; }
+  .fields label{
+    display:flex; align-items:center; gap:7px;
+    font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .fields input{
+    font:inherit; font-size:14px; font-weight:400; letter-spacing:0; text-transform:none;
+    color:var(--ink); background:var(--ground);
+    border:1px solid var(--rule); border-radius:6px; padding:5px 9px; width:8.5em;
+  }
+  .fields input:focus{ border-color:var(--ctx); }
+  /* Shown by script only when the chosen flow actually mentions them. */
+  .site-only,.niche-only{ display:none; }
+  .reset{
+    font:inherit; font-size:12.5px; font-weight:600; color:var(--muted);
+    background:none; border:0; padding:5px 2px; cursor:pointer; text-decoration:underline;
+  }
+  .reset:hover{ color:var(--ctx); }
+
+  /* ---- the answer: an ordered run of messages ---- */
+  .hint{
+    border:1px dashed var(--rule); border-radius:8px; padding:18px 20px;
+    color:var(--muted); font-size:15px; margin:0 0 26px;
+  }
+  .hint strong{ color:var(--ink); }
+
+  .step{ display:grid; grid-template-columns:34px minmax(0,1fr); gap:0 14px; margin:0 0 22px; }
+  .stepnum{
+    grid-row:1 / span 2;
+    width:28px; height:28px; border-radius:50%; background:var(--ink); color:#fff;
+    font-size:13px; font-weight:700; line-height:28px; text-align:center;
+    font-variant-numeric:tabular-nums; margin-top:2px;
+  }
+  .stepnote{ color:var(--ctx); font-size:14.5px; line-height:1.5; margin:0 0 8px; }
+  .stepnote strong{ color:var(--ctx); }
+  .msg{
+    position:relative; border:1px solid var(--rule); border-left:3px solid var(--ink);
+    border-radius:8px; padding:15px 17px; background:var(--field);
+  }
+  .msg p{ margin:0 0 11px; }
+  .msg p:last-child{ margin-bottom:0; }
+  .msg ol{ margin:0 0 11px; padding-left:1.5em; }
+  .msg.static{ margin:0 0 22px; }
+  .msghd{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin:0 0 9px; }
+  .cmpid{
+    font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  .copy{
+    font:inherit; font-size:12.5px; font-weight:600; line-height:1;
+    padding:6px 11px; border:1px solid var(--rule); border-radius:6px;
+    background:var(--ground); color:#3F444C; cursor:pointer; white-space:nowrap;
+  }
+  .copy:hover{ border-color:var(--ctx); color:var(--ctx); }
+  .copy[data-done="1"]{ border-color:var(--ok); color:var(--ok); }
+
+  /* A value the rep filled in at the top, dropped into the message body. */
+  .fill{ background:#FFF3C4; border-radius:3px; padding:0 2px; }
+  .ph{ color:var(--muted); border-bottom:1px dashed #9AA0A8; }
+
+  .legend{
+    display:flex; flex-wrap:wrap; gap:8px 22px; align-items:center;
+    padding:14px 16px; border:1px solid var(--rule); border-radius:8px;
+    margin:0 0 26px; font-size:13.5px;
+  }
+  .legend .sw{ display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:7px; vertical-align:middle; }
+  .legend .sendk .sw{ background:var(--ink); }
+  .legend .ctxk .sw{ background:var(--ctx); }
+  .legend .ctxk{ color:var(--ctx); }
+
+  @media print{
+    nav,.picker,.copy{ display:none; }
+    body{ font-size:11.5pt; }
+    main{ max-width:none; padding:0; }
+    .msg{ background:transparent; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  }
+  @media (prefers-reduced-motion:reduce){ html{ scroll-behavior:auto; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav aria-label="Jump to section">
+    <p class="home"><a href="../">&larr; ClientUp sales library</a></p>
+    <p class="navlabel">Jump to</p>
+    <a class="toc-l1" href="#build">Build the sequence</a>
+    <a class="toc-l1" href="#crm">Step 1 &mdash; CRM check</a>
+    <a class="toc-l1" href="#components">Message components</a>
+  </nav>
+  <main>
+    <header>
+      <h1>Pre-Call Engagement Flow</h1>
+      <div class="legend">
+        <span class="sendk"><span class="sw"></span><b>Black</b> &mdash; the message you send</span>
+        <span class="ctxk"><span class="sw"></span><b>Blue</b> &mdash; when to send it, never sent</span>
+      </div>
+    </header>
+
+    <aside class="callout">{{PURPOSE}}</aside>
+
+    <h2 id="build">Build the sequence</h2>
+    <p class="ctx-block">Answer these as the conversation goes. Every message you need comes back below in the order you send them.</p>
+
+    <div class="picker">
+      <div id="questions"></div>
+      <div class="fields" id="fields">
+        <label>Their name <input id="f-name" type="text" autocomplete="off" placeholder="[name]"></label>
+        <label>Your name <input id="f-you" type="text" autocomplete="off" placeholder="[your name]"></label>
+        <label class="site-only">Their site <input id="f-site" type="text" autocomplete="off" placeholder="xyz.com"></label>
+        <label class="niche-only">Their niche <input id="f-niche" type="text" autocomplete="off" placeholder="XYZ niche"></label>
+        <button class="reset" id="reset" type="button">Start again</button>
+      </div>
+    </div>
+
+    <div id="out"></div>
+
+    <h2 id="crm">Step 1 &mdash; CRM check</h2>
+    {{CRM}}
+
+    <h2 id="components">Message components</h2>
+    <p class="ctx-block">Every reusable message and where it applies. This is the source of truth &mdash; change a message here in Notion first, then rebuild.</p>
+    {{COMPONENTS}}
+  </main>
+</div>
+
+<script>
+(function(){
+  var DATA = {{DATA}};
+  var answers = {};
+
+  function store(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  function load(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }
+
+  // A `when` / `match` is either one condition object, or a list of them (any may match).
+  function satisfies(cond){
+    if(!cond) return true;
+    var list = Array.isArray(cond) ? cond : [cond];
+    return list.some(function(c){
+      return Object.keys(c).every(function(k){ return c[k].indexOf(answers[k]) > -1; });
+    });
+  }
+
+  function visibleQuestions(){
+    return DATA.questions.filter(function(q){ return satisfies(q.when); });
+  }
+
+  // Answers to questions that are no longer on screen would silently steer the
+  // sequence, so drop them whenever the visible set changes.
+  function prune(){
+    var live = {};
+    visibleQuestions().forEach(function(q){ live[q.id] = 1; });
+    Object.keys(answers).forEach(function(k){ if(!live[k]) delete answers[k]; });
+  }
+
+  function renderQuestions(){
+    var host = document.getElementById('questions');
+    host.textContent = '';
+    visibleQuestions().forEach(function(q){
+      var row = document.createElement('div'); row.className = 'qrow';
+      var lab = document.createElement('p'); lab.className = 'qlabel'; lab.textContent = q.label;
+      var opts = document.createElement('div'); opts.className = 'opts';
+      q.options.forEach(function(o){
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'opt'; b.textContent = o.l;
+        b.setAttribute('aria-pressed', answers[q.id] === o.v ? 'true' : 'false');
+        b.addEventListener('click', function(){
+          answers[q.id] = (answers[q.id] === o.v) ? undefined : o.v;
+          if(answers[q.id] === undefined) delete answers[q.id];
+          prune(); render();
+        });
+        opts.appendChild(b);
+      });
+      row.appendChild(lab); row.appendChild(opts); host.appendChild(row);
+    });
+  }
+
+  function sequence(){
+    var steps = [];
+    DATA.sequence.forEach(function(rule){
+      if(satisfies(rule.match)) steps = steps.concat(rule.steps);
+    });
+    return steps;
+  }
+
+  // Placeholder resolution. Anything the rep hasn't typed stays in its bracketed
+  // form, so a half-filled message is obviously half-filled rather than wrong.
+  var FILLS = [
+    {token:'[your name]', input:'f-you'},
+    {token:'[name]',      input:'f-name'},
+    {token:'xyz.com',     input:'f-site'},
+    {token:'XYZ niche',   input:'f-niche'}
+  ];
+
+  function val(id){
+    var el = document.getElementById(id);
+    return el && el.value.trim() ? el.value.trim() : '';
+  }
+
+  function resolveInto(parent, text, forCopy){
+    var rest = text, guard = 0;
+    while(rest && guard++ < 200){
+      var best = null;
+      FILLS.forEach(function(f){
+        var i = rest.indexOf(f.token);
+        if(i > -1 && (!best || i < best.i)) best = {i:i, f:f};
+      });
+      if(!best){ parent.appendChild(document.createTextNode(rest)); return; }
+      if(best.i) parent.appendChild(document.createTextNode(rest.slice(0, best.i)));
+      var v = val(best.f.input);
+      if(v){
+        var s = document.createElement('span');
+        s.className = forCopy ? '' : 'fill';
+        s.textContent = v;
+        parent.appendChild(s);
+      }else{
+        var p = document.createElement('span');
+        p.className = forCopy ? '' : 'ph';
+        p.textContent = best.f.token;
+        parent.appendChild(p);
+      }
+      rest = rest.slice(best.i + best.f.token.length);
+    }
+  }
+
+  function segsText(segs){
+    return segs.map(function(s){ return s.t; }).join('');
+  }
+
+  function fillPlain(text){
+    FILLS.forEach(function(f){
+      var v = val(f.input);
+      if(v) text = text.split(f.token).join(v);
+    });
+    return text;
+  }
+
+  function copyText(msg){
+    return msg.body.map(function(line){
+      if(line.type === 'ol'){
+        return line.items.map(function(it, i){
+          return (i+1) + '. ' + fillPlain(segsText(it));
+        }).join('\n');
+      }
+      return fillPlain(segsText(line.segs));
+    }).join('\n\n').trim();
+  }
+
+  function renderMessage(msg){
+    var box = document.createElement('div'); box.className = 'msg';
+
+    var hd = document.createElement('div'); hd.className = 'msghd';
+    var id = document.createElement('span'); id.className = 'cmpid';
+    id.textContent = /^[QR]\d$/.test(msg.id) ? msg.id : 'Message';
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'copy'; btn.textContent = 'Copy';
+    btn.addEventListener('click', function(){
+      var text = copyText(msg);
+      var done = function(){
+        btn.textContent = 'Copied';
+        btn.setAttribute('data-done','1');
+        setTimeout(function(){ btn.textContent = 'Copy'; btn.removeAttribute('data-done'); }, 1600);
+      };
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(done, function(){ fallback(text, done); });
+      }else{
+        fallback(text, done);
+      }
+    });
+    hd.appendChild(id); hd.appendChild(btn); box.appendChild(hd);
+
+    msg.body.forEach(function(line){
+      if(line.type === 'ol'){
+        var ol = document.createElement('ol');
+        line.items.forEach(function(it){
+          var li = document.createElement('li');
+          resolveInto(li, segsText(it), false);
+          ol.appendChild(li);
+        });
+        box.appendChild(ol);
+      }else{
+        var p = document.createElement('p');
+        line.segs.forEach(function(s){
+          var holder = s.b ? document.createElement('strong') : p;
+          resolveInto(holder, s.t, false);
+          if(s.b) p.appendChild(holder);
+        });
+        box.appendChild(p);
+      }
+    });
+    return box;
+  }
+
+  function fallback(text, done){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed'; ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  function renderOut(){
+    var out = document.getElementById('out');
+    out.textContent = '';
+    var steps = sequence();
+    var pending = visibleQuestions().filter(function(q){ return !answers[q.id]; });
+
+    // Only ask for details the selected flow actually uses.
+    var usesSite = steps.some(function(p){ return DATA.needsSite.indexOf(p[1]) > -1; });
+    var usesNiche = steps.some(function(p){ return DATA.needsNiche.indexOf(p[1]) > -1; });
+    document.querySelectorAll('.site-only').forEach(function(el){
+      el.style.display = usesSite ? '' : 'none';
+    });
+    document.querySelectorAll('.niche-only').forEach(function(el){
+      el.style.display = usesNiche ? '' : 'none';
+    });
+
+    if(!steps.length || pending.length){
+      var hint = document.createElement('div'); hint.className = 'hint';
+      if(!Object.keys(answers).length){
+        hint.innerHTML = 'Pick the prospect’s segment to start. The messages appear here in the order you send them, each one ready to copy.';
+      }else if(pending.length){
+        hint.innerHTML = 'Next, answer <strong>' + pending[0].label.toLowerCase() + '</strong>.';
+      }
+      out.appendChild(hint);
+      if(!steps.length) return;
+    }
+
+    steps.forEach(function(pair, i){
+      var note = DATA.notes[pair[0]], msg = DATA.messages[pair[1]];
+      if(!msg) return;
+
+      var step = document.createElement('div'); step.className = 'step';
+      var num = document.createElement('div'); num.className = 'stepnum'; num.textContent = i+1;
+      var n = document.createElement('p'); n.className = 'stepnote'; n.textContent = note || '';
+      step.appendChild(num); step.appendChild(n);
+      step.appendChild(renderMessage(msg));
+      out.appendChild(step);
+    });
+  }
+
+  function render(){ renderQuestions(); renderOut(); }
+
+  ['f-name','f-you','f-site','f-niche'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){
+      if(id === 'f-you') store('precall.you', el.value);
+      renderOut();
+    });
+  });
+  var saved = load('precall.you');
+  if(saved) document.getElementById('f-you').value = saved;
+
+  document.getElementById('reset').addEventListener('click', function(){
+    answers = {};
+    ['f-name','f-site','f-niche'].forEach(function(id){ document.getElementById(id).value = ''; });
+    render();
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
