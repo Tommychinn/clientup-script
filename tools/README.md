@@ -80,5 +80,12 @@ the two disagree it uses the Message Components definition — the doc calls tha
 the canonical one — and prints a warning naming the difference. Reconcile it in
 Notion rather than leaving the warning standing.
 
+**One rule the model enforces that the source doesn't:** every path asks a
+qualifier (Q1 or Q2) before it sends resources. The marketer branch for a
+prospect who shares a website had no Q1 in Notion while the other three marketer
+branches did; Tommy confirmed on 2026-08-28 that it should, so the model adds it.
+That is the only place the page deliberately runs ahead of the source — if you
+add a branch, keep the qualifier-before-resources rule.
+
 To change the flow — a new segment, a new branch — edit `precall_model.py`. To
 change what a message says, edit Notion.

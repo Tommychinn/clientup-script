@@ -196,10 +196,14 @@ SEQUENCE = [
      'steps': [step('MKT_FREELANCE_IF', 'MKT_FREELANCE'),
                step('MKT_FOLLOWUP_Q1', 'Q1'),
                step('AFTER_REPLY_R5', 'R5')]},
+    # Per Tommy 2026-08-28: a marketer with a domain gets the same Q1 follow-up as
+    # every other marketer path before R5. The source doesn't carry it on this
+    # branch yet — the other three marketer branches all do.
     {'match': {'segment': ['marketer'], 'mktBooked': ['personal'], 'mktReply': ['website']},
      'steps': [choice('MKT_IF_YES_SITE',
                       ('MKT_WEB_ECOM_LBL', 'MKT_WEB_ECOM'),
                       ('MKT_WEB_NICHE_LBL', 'MKT_WEB_NICHE')),
+               step('MKT_FOLLOWUP_Q1', 'Q1'),
                step('AFTER_REPLY_R5', 'R5')]},
 
     # --- nine-to-fiver: no branch before the first two messages ---
