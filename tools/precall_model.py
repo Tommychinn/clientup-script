@@ -184,6 +184,7 @@ SEQUENCE = [
      'steps': [choice('MKT_OPEN_EXAMPLES',
                       ('MKT_ECOM_LABEL', 'MKT_AGENCY_ECOM'),
                       ('MKT_NICHE_LABEL', 'MKT_AGENCY_NICHE')),
+               step('MKT_FOLLOWUP_Q1', 'Q1'),
                step('AFTER_REPLY_R5', 'R5')]},
     {'match': {'segment': ['marketer'], 'mktBooked': ['personal']},
      'steps': [step('OPEN', 'MKT_PERS_OPEN')]},
